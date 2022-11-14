@@ -29,8 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cliente` (
   `id_usuario` int(5) NOT NULL,
-  `nombre` int(40) NOT NULL,
-  `apellidos` int(40) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  `apellido_paterno` varchar(40) NOT NULL,
+  `apellido_materno` varchar(40) NOT NULL,
   `sexo` int(1) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `peso` float NOT NULL,
@@ -54,7 +55,8 @@ CREATE TABLE `empleado` (
   `id_empleado` int(5) NOT NULL,
   `password` varchar(60) NOT NULL,
   `nombre` varchar(40) NOT NULL,
-  `apellidos` varchar(40) NOT NULL,
+  `apellido_paterno` varchar(40) NOT NULL,
+  `apellido_materno` varchar(40) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `domicilio` varchar(40) NOT NULL,
   `telefono` varchar(10) NOT NULL,
