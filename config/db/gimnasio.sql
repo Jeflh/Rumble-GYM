@@ -39,8 +39,9 @@ CREATE TABLE `cliente` (
   `imc` float NOT NULL,
   `domicilio` int(40) NOT NULL,
   `telefono` varchar(10) NOT NULL,
-  `tipo_suscripcion` varchar(20) NOT NULL,
   `estado` int(1) NOT NULL,
+  `tipo_suscripcion` varchar(20) NOT NULL,
+  `estado_suscripcion` int(1) NOT NULL,
   `fecha_inicio` date NOT NULL,
   `fecha_fin` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -60,7 +61,7 @@ CREATE TABLE `empleado` (
   `fecha_nacimiento` date NOT NULL,
   `domicilio` varchar(40) NOT NULL,
   `telefono` varchar(10) NOT NULL,
-  `tipo` int(1) NOT NULL
+  `tipo` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -70,10 +71,8 @@ CREATE TABLE `empleado` (
 --
 
 CREATE TABLE `ingresos` (
-  `id_ingreso` int(5) NOT NULL,
-  `id_usuario` int(5) NOT NULL,
-  `fecha_ingreso` date NOT NULL,
-  `monto` float NOT NULL
+  `id_ingreso` int(10) NOT NULL AUTO_INCREMENT,
+  `id_venta` int(10) NOT NULL,
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -83,9 +82,9 @@ CREATE TABLE `ingresos` (
 --
 
 CREATE TABLE `producto` (
-  `id_producto` int(6) NOT NULL,
+  `id_producto` int(10) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(40) NOT NULL,
-  `descripcion` varchar(100) NOT NULL,
+  `descripcion` varchar(250) NOT NULL,
   `cantidad` int(11) NOT NULL,
   `precio` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -97,9 +96,9 @@ CREATE TABLE `producto` (
 --
 
 CREATE TABLE `venta` (
-  `id_venta` int(6) NOT NULL,
+  `id_venta` int(10) NOT NULL,
   `fecha_venta` date NOT NULL,
-  `ingreso_venta` float NOT NULL
+  `monto_venta` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -129,6 +128,13 @@ ALTER TABLE `ingresos`
 --
 ALTER TABLE `producto`
   ADD PRIMARY KEY (`id_producto`);
+
+--
+-- Indices de la tabla `venta`
+--
+ALTER TABLE `venta`
+  ADD PRIMARY KEY (`id_venta`);
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
