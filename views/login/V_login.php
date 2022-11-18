@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rumble GYM</title>
-</head>
-<body>
-  <h1>Funciona XD</h1>
-</body>
-</html>
+<?php require_once 'includes/header.php' ?>
+
+<main>
+  <div class="container">
+  <h1 class="text-center">Funciona XD</h1>
+
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit laborum aspernatur quos, esse obcaecati sunt quaerat odio sequi animi veniam similique provident aperiam aut perspiciatis facilis molestias quo eaque fuga doloremque quis? Iure aliquid quisquam vero dicta, obcaecati laudantium natus reprehenderit quidem earum voluptatum, mollitia, molestias alias corrupti accusantium repellat.</p>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque excepturi ipsa quae vitae, incidunt molestiae doloribus consequuntur magni fugit voluptatum perferendis, sapiente illum delectus, libero accusamus quasi fugiat magnam perspiciatis. Esse dolore dicta dignissimos voluptate minima sequi ratione earum ipsam!</p>
+  </div>
+</main>
+
+<?php require_once 'includes/footer.php' ?>
