@@ -2,8 +2,8 @@
 
 require_once "config/config.php";
 require_once "core/routes.php";
-// // require_once "core/funciones.php";
-// require_once "config/db/db.php";
+require_once "core/functions.php";
+require_once "config/db/db.php";
 
 if (isset($_GET['c'])) {
 
