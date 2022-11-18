@@ -1,4 +1,6 @@
-<?php require_once 'includes/header.php' ?>
+<?php require_once 'includes/header.php';
+      require_once 'includes/nav.php';
+?>
 
 <main>
   <div class="container">
@@ -10,4 +12,4 @@
   </div>
 </main>
 
-<?php require_once 'includes/footer.php' ?>
+<?php require_once 'includes/footer.php'; ?>
