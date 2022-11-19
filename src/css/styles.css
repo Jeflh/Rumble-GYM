@@ -1,0 +1,23 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+  position: relative;
+  padding-bottom: 4em;
+  min-height: 100vh;
+}
+
+footer {
+  width:100%; 
+  position:absolute; 
+  bottom:0; 
+  
+}
+
+a {
+  text-decoration: none;
+}
