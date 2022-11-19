@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Inicio</a>
+            <a class="nav-link active" href="#"></a>
           </li>
         </ul>
         <div class="d-flex">

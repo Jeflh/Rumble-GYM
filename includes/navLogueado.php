@@ -7,9 +7,6 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">Inicio</a>
-          </li>
         </ul>
         <div class="d-flex">
           <a href="login.php" class="btn btn-secondary me-2">Cerrar sesión</a>
