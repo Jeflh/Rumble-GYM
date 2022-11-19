@@ -12,7 +12,7 @@
           </li>
         </ul>
         <div class="d-flex">
-          <a href="#" class="btn btn-light">Iniciar sesión</a>
+          <a href="index.php" class="btn btn-light">Cliente</a>
         </div>
       </div>
     </div>
