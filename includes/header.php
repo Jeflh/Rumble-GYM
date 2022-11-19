@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="src/css/bootstrap.min.css">
   <link rel="stylesheet" href="src/css/styles.css">
+
+  <link rel="icon" type="image/jpg" href="src/img/fav.png"/>
   <title>Rumble GYM</title>
 </head>
 
