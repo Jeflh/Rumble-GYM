@@ -8,11 +8,36 @@ require_once 'includes/navLogueado.php';
 
     <div class="d-flex justify-content-between mb-3">
       <a href="index.php?c=producto&a=buscar" class="btn btn-info">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z"/></svg>
       </a>
-      <a href="index.php?c=producto&a=nuevo" class="btn btn-info">Agregar Producto</a>
+      <a href="index.php?c=producto&a=nuevo" class="btn btn-info">Agregar producto</a>
     </div>
 
+    <?php
+      if (isset($_GET['e'])) {
+
+        $status = $_GET['e'];
+
+        if ($status == '0') {
+          echo '<div class="text-center alert alert-dismissible alert-success mb-2">
+          <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+          <strong>Producto añadido</strong>, el producto ha sido añadido correctamente.
+          </div>';
+        }
+        if ($status == '1') {
+          echo '<div class="text-center alert alert-dismissible alert-success mb-2">
+          <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+          <strong>Producto actualizado</strong>, el producto ha sido actualizado correctamente.
+          </div>';
+        }
+        if ($status == '2') {
+          echo '<div class="text-center alert alert-dismissible alert-success mb-2">
+          <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+          <strong>Producto eliminado</strong>, el producto ha sido eliminado correctamente.
+          </div>';
+        }
+      }
+    ?>
     <table class="table table-dark table-striped table-bordered table-hover text-center">
       <thead>
         <tr>
