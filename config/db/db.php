@@ -5,7 +5,7 @@ class Conectar{
 
     $host = "localhost";
     $user = "root";
-    $pass = "root";
+    $pass = "";
     $db = "rumble_gym";
 
     $conexion = new mysqli($host, $user, $pass, $db);
