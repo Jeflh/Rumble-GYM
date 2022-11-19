@@ -3,6 +3,7 @@
 class ProductoModel{
   private $db;
 
+  private $id_producto;
   private $nombre;
   private $descripcion;
   private $cantidad;
@@ -14,6 +15,7 @@ class ProductoModel{
     $this->db = Conectar::conexion();
     $this->lista = array();
 
+    $this->id_producto = 0;
     $this->nombre = "";
     $this->descripcion = "";
     $this->cantidad = "";
@@ -49,13 +51,13 @@ class ProductoModel{
       if(empty($this->nombre)){
         $error .= "1";
       }
-      if(empty($this->descripcion)){
+      if(empty($this->cantidad)){
         $error .= "2";
       }
-      if(empty($this->cantidad)){
+      if(empty($this->precio)){
         $error .= "3";
       }
-      if(empty($this->precio)){
+      if(empty($this->descripcion)){
         $error .= "4";
       }
 
@@ -64,11 +66,12 @@ class ProductoModel{
 
         if($query){
           return true; // Si se inserta correctamente, se devuelve true.
-        }else{
+        }
+        else{
           return false; // Si no, se devuelve false.
         }
       }else{
-        header("Location: index.php?c=venta&a=nuevo&e=" . $error); 
+        header("Location: index.php?c=producto&a=nuevo&e=" . $error); 
         // Si hay errores, se redirige a la página de nuevo producto con los errores.
       }
     }
@@ -96,13 +99,13 @@ class ProductoModel{
       if(empty($this->nombre)){
         $error .= "1";
       }
-      if(empty($this->descripcion)){
+      if(empty($this->cantidad)){
         $error .= "2";
       }
-      if(empty($this->cantidad)){
+      if(empty($this->precio)){
         $error .= "3";
       }
-      if(empty($this->precio)){
+      if(empty($this->descripcion)){
         $error .= "4";
       }
 
@@ -111,11 +114,12 @@ class ProductoModel{
 
         if($query){
           return true; // Si se edita correctamente, se devuelve true.
-        }else{
+        }
+        else{
           return false; // Si no, se devuelve false.
         }
       }else{
-        header("Location: index.php?c=venta&a=editar&e=" . $error); 
+        header("Location: index.php?c=producto&a=editar&e=" . $error); 
         // Si hay errores, se redirige a la página de editar producto con los errores.
       }
     }

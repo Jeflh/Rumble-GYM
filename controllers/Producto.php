@@ -9,42 +9,41 @@ class ProductoController{
     $this->productoModel = new ProductoModel();
   }
 
-  public function index(){
+  public function index(){ // Función para mostrar todos los productos.
     $productos = $this->productoModel->getAll();
     require_once('views/producto/V_panelProductos.php');
   }
 
-  public function nuevo(){
+  public function nuevo(){ // Función para mostrar el formulario de nuevo producto.
     require_once 'views/producto/V_nuevoProducto.php';
   }
 
-  public function insertar(){
+  public function insertar(){ // Función para insertar un producto.
     if(isset($_POST)){
-      $this->productoModel->insertProducto();
-      header('Location: index.php?c=producto');
+      $resultado = $this->productoModel->insertProducto();
+      if($resultado){
+        header('Location: index.php?c=producto&e=0');
+      }
     }
   }
 
-  public function ver(){
-    $producto = $this->productoModel->getProducto($_GET['id']);
-    require_once 'views/producto/V_producto.php';
-  }
-
-  public function editar(){
+  public function editar(){ // Función para mostrar el formulario de editar producto.
     $producto = $this->productoModel->getProducto($_GET['id']);
     require_once 'views/producto/V_editarProducto.php';
   }
 
-  public function actualizar(){
+  public function actualizar(){ // Función para actualizar un producto.
     if(isset($_POST)){
-      $this->productoModel->updateProducto($_GET['id']);
-      header('Location: index.php?c=producto&a=ver&id=' . $_GET['id']);
+      $resultado = $this->productoModel->updateProducto($_POST['id_producto']);
+      if($resultado){
+        header('Location: index.php?c=producto&e=1');
+      }
     }
   }
 
-  public function eliminar(){
+  public function eliminar(){ // Función para eliminar un producto.
     $this->productoModel->deleteProducto($_GET['id']);
-    header('Location: index.php?c=producto');
+    header('Location: index.php?c=producto&e=2');
   }
 }
 
