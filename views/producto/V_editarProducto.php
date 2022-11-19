@@ -5,7 +5,7 @@ require_once 'includes/navLogueado.php';
 <main>
 
   <div class="container">
-    <h1 class="text-light text-center mt-2"><strong>Nuevo producto</strong></h1>
+    <h1 class="text-light text-center mt-2"><strong>Actualizando producto</strong></h1>
 
     <div class="d-flex justify-content-between">
       <a href="index.php?" class="btn btn-info mb-1">
@@ -15,7 +15,7 @@ require_once 'includes/navLogueado.php';
       </a>
     </div>
 
-  <?php 
+    <?php 
   if (isset($_GET['e'])) {
 
     $status = $_GET['e'];
@@ -53,28 +53,29 @@ require_once 'includes/navLogueado.php';
   ?>
 
     <div class="container d-flex justify-content-center">
-      <form class="col-4" action="index.php?c=producto&a=insertar" method="POST">
+      <form class="col-4" action="index.php?c=producto&a=actualizar" method="POST">
         <fieldset>
           <div class="form-group">
             <label for="nombre" class="form-label mt-4">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" autocomplete="off">
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del producto" autocomplete="off" value="<?php echo $producto['nombre']; ?>">
           </div>
           <div class="form-group">
             <label for="cantidad" class="form-label mt-4">Cantidad</label>
-            <input type="number" min="0" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad de productos" autocomplete="off">
+            <input type="number" min="0" class="form-control" id="cantidad" name="cantidad" placeholder="Cantidad de productos" autocomplete="off" value="<?php echo $producto['cantidad']; ?>">
           </div>
           <div class="form-group">
             <label for="precio" class="form-label mt-4">Precio</label>
-            <input type="number" min="0" class="form-control" id="precio" name="precio" placeholder="Precio del producto" autocomplete="off">
+            <input type="number" min="0" class="form-control" id="precio" name="precio" placeholder="Precio del producto" autocomplete="off" value="<?php echo $producto['precio']; ?>">
           </div>
           <div class="form-group">
             <label for="descripcion" class="form-label mt-4">Decripcion</label>
-            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" data-dl-input-translation="true" placeholder="Descripcion del producto" autocomplete="off"></textarea>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" data-dl-input-translation="true" placeholder="Descripcion del producto" autocomplete="off"><?php echo $producto['descripcion']; ?></textarea>
             <deepl-inline-translate style="z-index: 1999999999;"></deepl-inline-translate>
           </div>
 
           <div class="d-flex justify-content-center mt-3 mb-3">
-            <button type="submit" class="btn btn-primary mt-2">Registrar producto</button>
+            <input type="hidden" name="id_producto" value="<?php echo $producto['id_producto']; ?>">
+            <button type="submit" class="btn btn-primary mt-2">Actualizar producto</button>
           </div>
         </fieldset>
       </form>
