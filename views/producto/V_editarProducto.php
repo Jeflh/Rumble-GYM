@@ -65,7 +65,7 @@ require_once 'includes/navLogueado.php';
           </div>
           <div class="form-group">
             <label for="precio" class="form-label mt-2">Precio</label>
-            <input type="number" min="0" class="form-control" id="precio" name="precio" placeholder="Precio del producto" autocomplete="off" value="<?php echo $producto['precio']; ?>">
+            <input type="number" min="0" step="0.01" class="form-control" id="precio" name="precio" placeholder="Precio del producto" autocomplete="off" value="<?php echo $producto['precio']; ?>">
           </div>
           <div class="form-group">
             <label for="descripcion" class="form-label mt-2">Decripcion</label>
