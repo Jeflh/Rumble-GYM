@@ -9,7 +9,7 @@
         <ul class="navbar-nav me-auto">
         </ul>
         <div class="d-flex">
-          <a href="login.php" class="btn btn-secondary me-2">Cerrar sesión</a>
+          <a href="index.php?c=login&a=cerrar" class="btn btn-secondary me-2">Cerrar sesión</a>
         </div>
       </div>
     </div>
