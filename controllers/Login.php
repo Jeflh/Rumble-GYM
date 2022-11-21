@@ -36,8 +36,8 @@ class LoginController{
           session_start();
           $_SESSION['usuario'] = $cliente; // Guardar datos del usuario en la sesión
           $_SESSION['login'] = true;
-
-          require_once('views/inicio/V_inicioCliente.php');
+          
+          header("Location: index.php?c=panel");
         }
         else{
           header("Location: index.php?&e=3"); // Código o fecha de nacimiento incorrectos
@@ -48,12 +48,56 @@ class LoginController{
     }
   }
 
+  public function autenticarEmpleado(){
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+      $codigo = $_POST['codigo'];
+      $password = $_POST['password'];
+
+      $error = "";
+
+      if(empty($codigo)){
+        $error .= "1";
+      }
+      if(empty($password)){
+        $error .= "2";
+      }
+
+      if($error == ""){
+        $login = new LoginModel();
+        $empleado = $login->autenticarEmpleado($codigo);
+
+        if($empleado){ // Si la consulta devuelve un resultado (el usuario existe)
+          // password_verify($password, $empleado['password'])
+          if($password == $empleado['password']){ // Si la contraseña es correcta
+            session_start();
+            $_SESSION['usuario'] = $empleado; // Guardar datos del usuario en la sesión
+            $_SESSION['login'] = true;
+
+            header("Location: index.php?c=panel");
+          }
+          else{
+            header("Location: index.php?c=login&a=empleados&e=4"); // Contraseña incorrecta
+          }
+        }
+        else{
+          header("Location: index.php?c=login&a=empleados&e=3"); // Usuario no existe
+        }
+      }else{
+        header("Location: index.php?c=login&a=empleados&e=$error");
+      }
+    }
+  }
+
   public function cerrar(){  // Función para cerrar sesión
     session_start();
 
     $_SESSION = [];
-
-    header('Location: index.php');
+    
+    if(isset($_GET['e'])){
+      header("Location: index.php?&e=".$_GET['e']);
+    }else{
+      header('Location: index.php');
+    }
   }
 }
 
