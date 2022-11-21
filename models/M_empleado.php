@@ -119,9 +119,9 @@ class EmpleadoModel{
     }
   }
 
-  public function updateEmpleado(){
+  public function updateEmpleado($id){
     if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL.
-      $this->id_empleado = mysqli_real_escape_string($this->db, $_POST['id_empleado']);
+      $this->id_empleado = mysqli_real_escape_string($this->db, $id);
       $this->password = mysqli_real_escape_string($this->db, $_POST['password']);
       $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']);      
       $this->apellido_paterno = mysqli_real_escape_string($this->db, $_POST['apellido_paterno']);
@@ -185,9 +185,9 @@ class EmpleadoModel{
     }
   }
 
-  public function deleteEmpleado(){
+  public function deleteEmpleado($id){
     if(isset($_POST)){
-      $this->id_empleado = $_POST['id_empleado'];
+      $this->id_empleado = $id;
       $query = $this->db->query("DELETE FROM empleados WHERE id_empleado = '$this->id_empleado'");
       if($query){
         return true;
