@@ -179,7 +179,7 @@ class EmpleadoModel{
           return false;
         }
       }else{
-        header("Location: index.php?c=empleado&a=editar&e=" . $error); 
+        header("Location: index.php?c=empleado&a=editar&id=" . $this->id_empleado ."&e=" . $error); 
         // Si hay errores, se redirige a la página de nuevo empleado con los errores.
       }
     }

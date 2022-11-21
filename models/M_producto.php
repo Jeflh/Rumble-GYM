@@ -89,6 +89,7 @@ class ProductoModel{
 
   public function updateProducto($id){ // Función para editar un producto.
     if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL.
+      $this->id_producto = mysqli_real_escape_string($this->db, $id);
       $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']);
       $this->descripcion = mysqli_real_escape_string($this->db, $_POST['descripcion']);
       $this->cantidad = mysqli_real_escape_string($this->db, $_POST['cantidad']);
@@ -110,7 +111,7 @@ class ProductoModel{
       }
 
       if($error == ""){ // Si no hay errores, se edita el producto.
-        $query = $this->db->query("UPDATE productos SET nombre = '$this->nombre', descripcion = '$this->descripcion', cantidad = '$this->cantidad', precio = '$this->precio' WHERE id_producto = '$id'");
+        $query = $this->db->query("UPDATE productos SET nombre = '$this->nombre', descripcion = '$this->descripcion', cantidad = '$this->cantidad', precio = '$this->precio' WHERE id_producto = '$this->id_producto'");
 
         if($query){
           return true; // Si se edita correctamente, se devuelve true.
@@ -119,7 +120,7 @@ class ProductoModel{
           return false; // Si no, se devuelve false.
         }
       }else{
-        header("Location: index.php?c=producto&a=editar&e=" . $error); 
+        header("Location: index.php?c=producto&a=editar&id=" . $this->id_producto . "&e=" . $error); 
         // Si hay errores, se redirige a la página de editar producto con los errores.
       }
     }
