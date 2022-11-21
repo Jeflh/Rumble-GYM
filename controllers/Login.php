@@ -40,10 +40,10 @@ class LoginController{
           header("Location: index.php?c=panel");
         }
         else{
-          header("Location: index.php?&e=3"); // Código o fecha de nacimiento incorrectos
+          header("Location: index.php?c=login&e=3"); // Código o fecha de nacimiento incorrectos
         }
       }else{
-        header("Location: index.php?&e=$error");
+        header("Location: index.php?c=login&e=$error");
       }
     }
   }
@@ -67,8 +67,7 @@ class LoginController{
         $empleado = $login->autenticarEmpleado($codigo);
 
         if($empleado){ // Si la consulta devuelve un resultado (el usuario existe)
-          // password_verify($password, $empleado['password'])
-          if($password == $empleado['password']){ // Si la contraseña es correcta
+          if(password_verify($password, $empleado['password'])){ // Si la contraseña es correcta
             session_start();
             $_SESSION['usuario'] = $empleado; // Guardar datos del usuario en la sesión
             $_SESSION['login'] = true;

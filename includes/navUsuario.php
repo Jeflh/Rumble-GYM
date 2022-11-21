@@ -12,7 +12,7 @@
           </li>
         </ul>
         <div class="d-flex">
-          <a href="index.php?c=login&a=empleados" class="btn btn-light">Administrador</a>
+          <a href="index.php?c=login&a=empleados" class="btn btn-light">Personal</a>
         </div>
       </div>
     </div>

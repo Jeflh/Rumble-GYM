@@ -12,7 +12,7 @@
           </li>
         </ul>
         <div class="d-flex">
-          <a href="index.php" class="btn btn-light">Cliente</a>
+          <a href="index.php" class="btn btn-light">Clientes</a>
         </div>
       </div>
     </div>
