@@ -3,6 +3,7 @@
 class ProductoController{
 
   private $productoModel;
+  private $auth;
 
   public function __construct(){
     require_once 'models/M_producto.php';
@@ -10,8 +11,15 @@ class ProductoController{
   }
 
   public function index(){ // Función para mostrar todos los productos.
+    $this->auth = autenticado();
+    if(!$this->auth){
+      header('Location: index.php?c=login');
+    }
+    if( $_SESSION['usuario']['tipo'] != '1'){
+      header('Location: index.php?c=panel');
+    }
     $productos = $this->productoModel->getAll();
-    require_once('views/producto/V_panelProductos.php');
+    require_once('views/producto/V_inicioProductos.php');
   }
 
   public function nuevo(){ // Función para mostrar el formulario de nuevo producto.
