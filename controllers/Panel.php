@@ -9,7 +9,7 @@ class PanelController{
     $this->auth = autenticado();
 
     if(!$this->auth){
-      header("Location: index.php");
+      header("Location: index.php?c=login");
     }
   }
 
@@ -27,6 +27,9 @@ class PanelController{
     }
     else if(isset($_SESSION['usuario']['estado'])) {
       require_once('views/panel/V_panelCliente.php');
+    }
+    else {
+      header("Location: index.php?c=login");
     }
   }
 }
