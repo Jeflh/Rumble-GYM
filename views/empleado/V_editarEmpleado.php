@@ -6,7 +6,7 @@ date_default_timezone_set('America/Mexico_City');
 <main>
 
   <div class="container">
-    <h1 class="text-light text-center mt-2"><strong>Agregar empleado</strong></h1>
+    <h1 class="text-light text-center mt-2"><strong>Actualizando empleado</strong></h1>
 
     <div class="d-flex justify-content-between">
       <a href="index.php?c=empleado" class="btn btn-info mb-1">
@@ -78,47 +78,49 @@ date_default_timezone_set('America/Mexico_City');
   ?>
 
     <div class="container d-flex justify-content-center">
-      <form class="col-4" action="index.php?c=empleado&a=insertar" method="POST">
+      <form class="col-4" action="index.php?c=empleado&a=actualizar" method="POST">
         <fieldset>
           <div class="form-group">
             <label for="nombre" class="form-label mt-2">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. Juan" autocomplete="off">
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. Juan" autocomplete="off" value="<?php echo $empleado['nombre'] ?>">
           </div>
           <div class="form-group">
             <label for="apellido_paterno" class="form-label mt-2">Apellido Paterno</label>
-            <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" placeholder="Ej. Salazar" autocomplete="off">
+            <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" placeholder="Ej. Salazar" autocomplete="off" value="<?php echo $empleado['apellido_paterno']; ?>">
           </div>
           <div class="form-group">
             <label for="apellido_materno" class="form-label mt-2">Apellido Materno</label>
-            <input type="text" class="form-control" id="apellido_materno" name="apellido_materno" placeholder="Ej. Corona" autocomplete="off">
+            <input type="text" class="form-control" id="apellido_materno" name="apellido_materno" placeholder="Ej. Corona" autocomplete="off" value="<?php echo $empleado['apellido_materno']; ?>">
           </div>
           <div class="form-group">
             <label for="fecha_nacimiento" class="form-label mt-2">Fecha Nacimiento</label>
-            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" min="1950-01-01" max="<?php $actual = date('Y-m-d'); $nueva = strtotime ('-18 year' , strtotime($actual)); echo date ('Y-m-d', $nueva);?>">
+            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" min="1950-01-01" max="<?php $actual = date('Y-m-d'); $nueva = strtotime ('-18 year' , strtotime($actual)); echo date ('Y-m-d', $nueva);?>" value="<?php echo str_replace('/', '-', $empleado['fecha_nacimiento']); ?>">
           </div>
           <div class="form-group">
             <label for="domicilio" class="form-label mt-2">Domicilio</label>
-            <input type="text" class="form-control" id="domicilio" name="domicilio" placeholder="Ej. Av. Revolución 1500" autocomplete="off">
+            <input type="text" class="form-control" id="domicilio" name="domicilio" placeholder="Ej. Av. Revolución 1500" autocomplete="off" value="<?php echo $empleado['domicilio'] ?>">
           </div>
           <div class="form-group">
             <label for="telefono" class="form-label mt-2">Telefono</label>
-            <input type="number" min="0" class="form-control" id="telefono" name="telefono" placeholder="Ej. 3310940910" autocomplete="off">
+            <input type="number" min="0" class="form-control" id="telefono" name="telefono" placeholder="Ej. 3310940910" autocomplete="off" value="<?php echo $empleado['telefono'] ?>">
           </div>
           <div class="form-group">
             <label for="tipo" class="form-label mt-2">Tipo de Empleado</label>
             <select class="form-select" id="tipo" name="tipo">
               <option selected disabled>-Seleccionar-</option>
-              <option>1- Administrador</option>
-              <option>2- Recepcionista</option>
-              <option>3- Entrenador</option>
+              <option <?php if($empleado['tipo'] == 1) echo 'selected';?> >1- Administrador</option>
+              <option <?php if($empleado['tipo'] == 2) echo 'selected';?> >2- Recepcionista</option>
+              <option <?php if($empleado['tipo'] == 3) echo 'selected';?> >3- Entrenador</option>
             </select>
           </div>
           <div class="form-group">
             <label for="password" class="form-label mt-2">Contraseña</label>
             <input type="password"  class="form-control" id="password" name="password" placeholder="Ingresa una constraseña" autocomplete="off">
+
+            <input type="hidden" id="id_empleado" name="id_empleado" value="<?php echo $empleado['id_empleado'];?>">
           </div>
           <div class="d-flex justify-content-center mt-2 mb-3">
-            <button type="submit" class="btn btn-primary mt-2">Agregar empleado</button>
+            <button type="submit" class="btn btn-primary mt-2">Actualizar empleado</button>
           </div>
         </fieldset>
       </form>
