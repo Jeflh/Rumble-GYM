@@ -13,6 +13,12 @@ require_once 'includes/navUsuario.php';
       // Se convierte el string en un array para poder evaluar cada caso.
       for ($i = 0; $i < count($arrayValues); $i++) {
         switch ($arrayValues[$i]) { // Se evalua cada caso y muestra la alerata correspondiente
+          case "0":
+            echo '<div class="text-center alert alert-dismissible alert-success mb-1">
+          <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+          <strong>Ingreso confirmado</strong>, la asistencia ha sido guardada correctamente.
+          </div>';
+            break;
           case "1":
             echo '<div class="text-center alert alert-dismissible alert-danger mb-1">
           <button type="button" class="btn-close " data-bs-dismiss="alert"></button>

@@ -9,7 +9,7 @@
       <small class="form-text text-muted">Empleados del gimnasio</small>
     </div>
     <div class="container d-flex justify-content-center">
-      <form class="col-3" action="index.php?c=login&a=autenticar" method="POST">
+      <form class="col-3" action="index.php?c=login&a=autenticarEmpleado" method="POST">
         <fieldset>
           <div class="form-group">
             <label for="codigo" class="form-label mt-5">Código</label>

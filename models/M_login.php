@@ -16,6 +16,14 @@ class LoginModel{
     return $row;
   }
 
+  public function autenticarEmpleado($codigo){
+    $query = $this->db->query("SELECT * FROM empleados WHERE id_empleado = '$codigo'");
+
+    $row = $query->fetch_assoc();
+
+    return $row;
+  }
+
 }
 
 ?>
