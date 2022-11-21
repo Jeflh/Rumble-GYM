@@ -5,7 +5,7 @@ class EmpleadoController{
   private $empleadoModel;
 
   public function __construct(){
-    require_once('models/M_Empleado.php');
+    require_once('models/M_empleado.php');
     $this->empleadoModel = new EmpleadoModel();
   }
 
