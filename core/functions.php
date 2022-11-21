@@ -28,4 +28,8 @@ function fechaEnRango($fecha_inicio, $fecha_fin){
   }
 }
 
+function generarId(){
+  $id = rand(10000,99999);
+  return $id;
+}
 ?>
