@@ -1,7 +1,7 @@
 <?php
 
 class EmpleadoController{
-
+  private $auth;
   private $empleadoModel;
 
   public function __construct(){
