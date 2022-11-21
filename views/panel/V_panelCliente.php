@@ -1,14 +1,20 @@
 <?php
 require_once 'includes/header.php';
 require_once 'includes/navLogueado.php';
+
+$cliente = $_SESSION['usuario'];
 ?>
 
 <main>
   <div class="container">
-    <h1 class="text-light text-center mt-2"><strong>Usuario</strong></h1>
+    <h1 class="text-light text-center mt-2"><strong><?php echo $cliente['nombre'] . ' ' . $cliente['apellido_paterno'] . ' ' . $cliente['apellido_materno'];?></strong></h1>
 
     <div class="d-flex justify-content-center">
-      <a class="btn btn-info" href="index.php?c=asistencia&a=nueva">Confirmar asistencia</a>
+      <form action="index.php?c=asistencia&a=guardar" method="POST">
+        <input type="hidden" id="id" name="id" value="<?php echo $cliente['id_cliente'];?>">
+        <input type="hidden" id="fecha" name="fecha" value="<?php date_default_timezone_set('America/Mexico_City'); echo date('Y-m-d');?>">
+        <button type="submit" class="btn btn-info">Confirmar asistencia</button>
+      </form>
     </div>
 
     <div class="d-flex justify-content-center text-center">
