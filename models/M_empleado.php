@@ -6,14 +6,12 @@ class EmpleadoModel{
   private $id_empleado;
   private $password;
   private $nombre;
-  private $cantidad;
   private $apellido_paterno;
   private $apellido_materno;
   private $fecha_nacimiento;
   private $domicilio;
   private $telefono;
   private $tipo;
-
 
   private $lista;
 
@@ -48,8 +46,6 @@ class EmpleadoModel{
 
     return $row;
   }
-
-  
 
   public function insertEmpleado(){ // Función para insertar un producto.
     if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL.
@@ -101,8 +97,16 @@ class EmpleadoModel{
 
         $passwordHash = password_hash($this->password, PASSWORD_BCRYPT);
 
+        if(substr($this->tipo, 0, 1) == '1'){
+          $this->tipo = 1;
+        } else if(substr($this->tipo, 0, 1) == '2'){
+          $this->tipo = 2;
+        } else {
+          $this->tipo = 3;
+        }
+          
         $query = $this->db->query("INSERT INTO empleados VALUES('$this->id_empleado', '$passwordHash', '$this->nombre', '$this->apellido_paterno', '$this->apellido_materno', '$this->fecha_nacimiento', '$this->domicilio', '$this->telefono', '$this->tipo')");
-        
+
         if($query){
           return true;
         }else{
@@ -115,8 +119,83 @@ class EmpleadoModel{
     }
   }
 
+  public function updateEmpleado(){
+    if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL.
+      $this->id_empleado = mysqli_real_escape_string($this->db, $_POST['id_empleado']);
+      $this->password = mysqli_real_escape_string($this->db, $_POST['password']);
+      $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']);      
+      $this->apellido_paterno = mysqli_real_escape_string($this->db, $_POST['apellido_paterno']);
+      $this->apellido_materno = mysqli_real_escape_string($this->db, $_POST['apellido_materno']);
+      $this->fecha_nacimiento = mysqli_real_escape_string($this->db, $_POST['fecha_nacimiento']);
+      $this->domicilio = mysqli_real_escape_string($this->db, $_POST['domicilio']);
+      $this->telefono = mysqli_real_escape_string($this->db, $_POST['telefono']);
+      $this->tipo = mysqli_real_escape_string($this->db, $_POST['tipo']);
+      
 
- 
+      $error = ""; // Variable para almacenar los errores.
+
+      if(empty($this->nombre) || is_numeric($this->nombre)){
+        $error .= "1";
+      }
+      if(empty($this->apellido_paterno) || is_numeric($this->nombre)){
+        $error .= "2";
+      }
+      if(empty($this->apellido_materno) || is_numeric($this->nombre)){
+        $error .= "3";
+      }
+      if(empty($this->fecha_nacimiento)){
+        $error .= "4";
+      }
+      if(empty($this->domicilio)){
+        $error .= "5";
+      }
+      if(empty($this->telefono) || strlen($this->telefono) != 10){
+        $error .= "6";
+      }
+      if(empty($this->tipo)){
+        $error .= "7";
+      }
+      if(empty($this->password)){
+        $error .= "8";
+      }
+      
+      if($error == ""){ // Si no hay errores, se inserta el producto.
+
+        $passwordHash = password_hash($this->password, PASSWORD_BCRYPT);
+
+        if(substr($this->tipo, 0, 1) == '1'){
+          $this->tipo = 1;
+        } else if(substr($this->tipo, 0, 1) == '2'){
+          $this->tipo = 2;
+        } else {
+          $this->tipo = 3;
+        }
+          
+        $query = $this->db->query("UPDATE empleados SET password = '$passwordHash', nombre = '$this->nombre', apellido_paterno = '$this->apellido_paterno', apellido_materno = '$this->apellido_materno', fecha_nacimiento = '$this->fecha_nacimiento', domicilio = '$this->domicilio', telefono = '$this->telefono', tipo = '$this->tipo' WHERE id_empleado = '$this->id_empleado'");
+
+        if($query){
+          return true;
+        }else{
+          return false;
+        }
+      }else{
+        header("Location: index.php?c=empleado&a=editar&e=" . $error); 
+        // Si hay errores, se redirige a la página de nuevo empleado con los errores.
+      }
+    }
+  }
+
+  public function deleteEmpleado(){
+    if(isset($_POST)){
+      $this->id_empleado = $_POST['id_empleado'];
+      $query = $this->db->query("DELETE FROM empleados WHERE id_empleado = '$this->id_empleado'");
+      if($query){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  }
 }
 
 ?>
