@@ -5,6 +5,10 @@ require_once "core/routes.php";
 require_once "core/functions.php";
 require_once "config/db/db.php";
 
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL); // Para mostrar los errores
+
 if (isset($_GET['c'])) {
 
 	$controlador = cargarControlador($_GET['c']);
