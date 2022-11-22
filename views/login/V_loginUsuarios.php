@@ -44,7 +44,7 @@ require_once 'includes/navUsuario.php';
 
     <h1 class="text-light text-center mt-5"><strong>Inicio de sesión</strong></h1>
     <div class="text-center">
-      <p class="text-muted">Clientes del gimnasio</p>
+      <p class="text-muted">Usuarios del gimnasio</p>
     </div>
     <div class="container d-flex justify-content-center">
       <form class="col-sm-3" action="index.php?c=login&a=autenticarCliente" method="POST">

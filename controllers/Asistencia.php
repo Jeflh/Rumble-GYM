@@ -10,10 +10,10 @@ class AsistenciaController{
       header('Location: index.php');
     }
     require_once('models/M_asistencia.php');
-    require_once('models/M_cliente.php');
+    require_once('models/M_usuario.php');
 
-    $clientes = new ClienteModel();
-    $this->listaInterna = $clientes->getClientes();
+    $usuarios = new UsuarioModel();
+    $this->listaInterna = $usuarios->getUsuarios();
   }
   
   public function guardar(){
@@ -24,7 +24,7 @@ class AsistenciaController{
       if(!$existe){
         for($i = 0; $i < count($this->listaInterna); $i++){
           $asistenciaInicial [$i] = array(
-            'id_cliente' => $this->listaInterna[$i]['id_cliente'],
+            'id_usuario' => $this->listaInterna[$i]['id_usuario'],
             'fecha_asistencia' => $_POST['fecha'],
             'estado' => 0
           );
@@ -33,7 +33,7 @@ class AsistenciaController{
         $this->guardar();
       } else {
         $asistenciaActual = array(
-          'id_cliente' => $_POST['id'],
+          'id_usuario' => $_POST['id'],
           'fecha_asistencia' => $_POST['fecha'],
           'estado' => 1
         );

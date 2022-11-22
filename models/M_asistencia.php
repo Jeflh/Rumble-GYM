@@ -9,20 +9,20 @@ class AsistenciaModel{
     $this->listaAsistencia = array();
   }
 
-  public function setDia($cliente){
-    $id_cliente = $cliente['id_cliente'];
-    $fecha_asistencia = $cliente['fecha_asistencia'];
-    $estado = $cliente['estado'];
+  public function setDia($usuario){
+    $id_usuario = $usuario['id_usuario'];
+    $fecha_asistencia = $usuario['fecha_asistencia'];
+    $estado = $usuario['estado'];
     
-    $query = $this->db->query("INSERT INTO asistencias (id_cliente, fecha_asistencia, estado)  VALUES('$id_cliente', '$fecha_asistencia', '$estado')");
+    $query = $this->db->query("INSERT INTO asistencias (id_usuario, fecha_asistencia, estado)  VALUES('$id_usuario', '$fecha_asistencia', '$estado')");
   }
 
-  public function updateDia($cliente){
-    $id_cliente = $cliente['id_cliente'];
-    $fecha_asistencia = $cliente['fecha_asistencia'];
-    $estado = $cliente['estado'];
+  public function updateDia($usuario){
+    $id_usuario = $usuario['id_usuario'];
+    $fecha_asistencia = $usuario['fecha_asistencia'];
+    $estado = $usuario['estado'];
 
-    $query = $this->db->query("UPDATE asistencias SET estado = '$estado' WHERE fecha_asistencia = '$fecha_asistencia' AND id_cliente = '$id_cliente'");
+    $query = $this->db->query("UPDATE asistencias SET estado = '$estado' WHERE fecha_asistencia = '$fecha_asistencia' AND id_usuario = '$id_usuario'");
   }
 
   public function existeDia($fecha){
@@ -36,7 +36,7 @@ class AsistenciaModel{
   }
 
   public function getAsistencias($id, $inicio, $fin){
-    $query = $this->db->query("SELECT * FROM asistencias WHERE id_cliente = '$id' AND fecha_asistencia BETWEEN '$inicio' AND '$fin'");
+    $query = $this->db->query("SELECT * FROM asistencias WHERE id_usuario = '$id' AND fecha_asistencia BETWEEN '$inicio' AND '$fin'");
 
     while($row = $query->fetch_assoc()) {
       $this->listaAsistencia[] = $row;

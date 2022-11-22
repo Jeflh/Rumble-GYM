@@ -12,7 +12,7 @@
           </li>
         </ul>
         <div class="d-flex justify-content-center">
-          <a href="index.php" class="btn btn-light">Clientes</a>
+          <a href="index.php" class="btn btn-light">Cambiar a usuarios</a>
         </div>
       </div>
     </div>

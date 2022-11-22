@@ -12,7 +12,7 @@
           </li>
         </ul>
         <div class="d-flex justify-content-center">
-          <a href="index.php?c=login&a=empleados" class="btn btn-light">Personal</a>
+          <a href="index.php?c=login&a=empleados" class="btn btn-light">Cambiar a empleados</a>
         </div>
       </div>
     </div>
