@@ -23,10 +23,10 @@ class AsistenciaController{
 
       if(!$existe){
         for($i = 0; $i < count($this->listaInterna); $i++){
-          $asistenciaInicial = array(
+          $asistenciaInicial [$i] = array(
             'id_cliente' => $this->listaInterna[$i]['id_cliente'],
             'fecha_asistencia' => $_POST['fecha'],
-            'estado' => '0'
+            'estado' => 0
           );
           $asistencia->setDia($asistenciaInicial[$i]);
         }
@@ -35,7 +35,7 @@ class AsistenciaController{
         $asistenciaActual = array(
           'id_cliente' => $_POST['id'],
           'fecha_asistencia' => $_POST['fecha'],
-          'estado' => '1'
+          'estado' => 1
         );
         $asistencia->updateDia($asistenciaActual);
       }

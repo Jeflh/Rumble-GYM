@@ -93,7 +93,7 @@ class LoginController{
     $_SESSION = [];
     
     if(isset($_GET['e'])){
-      header("Location: index.php?&e=".$_GET['e']);
+      header("Location: index.php?c=login&e=".$_GET['e']);
     }else{
       header('Location: index.php');
     }
