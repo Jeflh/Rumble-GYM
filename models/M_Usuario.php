@@ -5,10 +5,10 @@ class UsuarioModel{
 
   private $id_usuario;
   private $nombre;
-  private $apellido_paterno;
-  private $apellido_materno;
+  private $apellido_p;
+  private $apellido_m;
   private $sexo;
-  private $fecha_nacimiento;
+  private $fecha_nac;
   private $peso;
   private $altura;
   private $domicilio;

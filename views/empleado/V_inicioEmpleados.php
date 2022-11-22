@@ -54,8 +54,8 @@ require_once 'includes/navLogueado.php';
         <?php foreach ($empleados as $empleado) : ?>
           <tr class="table-default">
             <th scope="row"><?php echo $empleado['id_empleado']; ?></th>
-            <td><?php echo $empleado['nombre'] . ' ' . $empleado['apellido_paterno'] . ' ' . $empleado['apellido_materno']; ?></td>
-            <td><?php echo date('d/m/Y', strtotime($empleado['fecha_nacimiento'])); ?></td>
+            <td><?php echo $empleado['nombre'] . ' ' . $empleado['apellido_p'] . ' ' . $empleado['apellido_m']; ?></td>
+            <td><?php echo date('d/m/Y', strtotime($empleado['fecha_nac'])); ?></td>
             <td><?php echo $empleado['domicilio']; ?></td>
             <td><?php echo $empleado['telefono']; ?></td>
             <td>

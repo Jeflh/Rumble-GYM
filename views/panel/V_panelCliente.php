@@ -7,7 +7,7 @@ $usuario = $_SESSION['usuario'];
 
 <main>
   <div class="container">
-    <h1 class="text-light text-center mt-2"><strong><?php echo $usuario['nombre'] . ' ' . $usuario['apellido_paterno'] . ' ' . $usuario['apellido_materno'];?></strong></h1>
+    <h1 class="text-light text-center mt-2"><strong><?php echo $usuario['nombre'] . ' ' . $usuario['apellido_p'] . ' ' . $usuario['apellido_m'];?></strong></h1>
 
     <div class="d-flex justify-content-center">
       <form action="index.php?c=asistencia&a=guardar" method="POST">
@@ -85,9 +85,9 @@ $usuario = $_SESSION['usuario'];
             }
             ?></p>
           <p class="card-text"><strong>Código: </strong><?php echo $usuario['id_usuario']; ?></p>
-          <p class="card-text"><strong>Nombre: </strong><?php echo $usuario['nombre'] . ' ' . $usuario['apellido_paterno'] . ' ' . $usuario['apellido_materno']; ?></p>
+          <p class="card-text"><strong>Nombre: </strong><?php echo $usuario['nombre'] . ' ' . $usuario['apellido_p'] . ' ' . $usuario['apellido_m']; ?></p>
           <p class="card-text"><strong>Sexo: </strong><?php echo $sexo = ($usuario['sexo'] == 'M') ? 'Masculino' : 'Femenino' ?></p>
-          <p class="card-text"><strong>Fecha de nacimiento: </strong><?php echo date("d-m-Y", strtotime($usuario['fecha_nacimiento'])); ?></p>
+          <p class="card-text"><strong>Fecha de nacimiento: </strong><?php echo date("d-m-Y", strtotime($usuario['fecha_nac'])); ?></p>
           <p class="card-text"><strong>Domicilio: </strong><?php echo $usuario['domicilio']; ?></p>
           <p class="card-text"><strong>Teléfono: </strong><?php echo $usuario['telefono']; ?></p>
         </div>
