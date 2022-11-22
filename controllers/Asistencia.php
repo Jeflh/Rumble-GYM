@@ -13,7 +13,7 @@ class AsistenciaController{
     require_once('models/M_usuario.php');
 
     $usuarios = new UsuarioModel();
-    $this->listaInterna = $usuarios->getUsuarios();
+    $this->listaInterna = $usuarios->getAll();
   }
   
   public function guardar(){

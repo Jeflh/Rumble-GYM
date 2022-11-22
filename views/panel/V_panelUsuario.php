@@ -51,11 +51,11 @@ $usuario = $_SESSION['usuario'];
             if ($usuario['tipo_suscripcion'] == '1') {
               echo '<strong>Mensual</strong>';
             } else if ($usuario['tipo_suscripcion'] == '2') {
-              echo '<strong>Trimestral</strong>Trimestral';
+              echo '<strong>Trimestral</strong>';
             } else if ($usuario['tipo_suscripcion'] == '3') {
-              echo '<strong>Semestral</strong>Semestral';
+              echo '<strong>Semestral</strong>';
             } else if ($usuario['tipo_suscripcion'] == '4') {
-              echo '<strong>Anual</strong>Anual';
+              echo '<strong>Anual</strong>';
             }
             ?>
           </h5>

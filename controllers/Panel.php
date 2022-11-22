@@ -26,7 +26,7 @@ class PanelController{
       } 
     }
     else if(isset($_SESSION['usuario']['estado'])) {
-      require_once('views/panel/V_panelCliente.php');
+      require_once('views/panel/V_panelUsuario.php');
     }
     else {
       header("Location: index.php?c=login");

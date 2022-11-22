@@ -52,9 +52,9 @@ CREATE TABLE `empleados` (
   `id_empleado` int NOT NULL,
   `password` varchar(60) NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  `apellido_paterno` varchar(45) NOT NULL,
-  `apellido_materno` varchar(45) NOT NULL,
-  `fecha_nacimiento` varchar(45) NOT NULL,
+  `apellido_p` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `apellido_m` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `fecha_nac` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `domicilio` varchar(150) NOT NULL,
   `telefono` varchar(10) NOT NULL,
   `tipo` int NOT NULL,
@@ -173,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-22 16:23:44
+-- Dump completed on 2022-11-22 16:40:54

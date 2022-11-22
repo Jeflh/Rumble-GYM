@@ -24,7 +24,7 @@ class UsuarioModel{
     $this->db = Conectar::conexion();
   }
 
-  public function getUsuarios(){
+  public function getAll(){
     $query = $this->db->query("SELECT * FROM usuarios");
 
     while($row = $query->fetch_assoc()) {
