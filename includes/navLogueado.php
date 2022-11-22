@@ -8,7 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto">
         </ul>
-        <div class="d-flex">
+        <div class="d-flex justify-content-center">
           <a href="index.php?c=login&a=cerrar" class="btn btn-secondary me-2">Cerrar sesión</a>
         </div>
       </div>
