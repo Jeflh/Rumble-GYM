@@ -40,8 +40,8 @@ class ProductoModel{
   }
 
   public function insertProducto(){ // Función para insertar un producto.
-    if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL.
-      $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']);
+    if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL. 
+      $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']); 
       $this->descripcion = mysqli_real_escape_string($this->db, $_POST['descripcion']);
       $this->cantidad = mysqli_real_escape_string($this->db, $_POST['cantidad']);
       $this->precio = mysqli_real_escape_string($this->db, $_POST['precio']);

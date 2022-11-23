@@ -1,5 +1,5 @@
 <?php require_once 'includes/header.php';
-      require_once 'includes/navUsuario.php';
+      require_once 'includes/navUsuario.php'; // manda a llamar un archivo en especifico 
 ?>
 
 <main>
