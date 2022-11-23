@@ -12,7 +12,7 @@ $usuario = $_SESSION['usuario'];
     <div class="d-flex justify-content-center">
       <form action="index.php?c=asistencia&a=guardar" method="POST">
         <input type="hidden" id="id" name="id" value="<?php echo $usuario['id_usuario'];?>">
-        <input type="hidden" id="fecha" name="fecha" value="<?php date_default_timezone_set('America/Mexico_City'); echo date('Y-m-d');?>">
+        <input type="hidden" id="fecha" name="fecha" value="<?php echo date('Y-m-d');?>">
         <button type="submit" class="btn btn-info">Confirmar asistencia</button>
       </form>
     </div>
