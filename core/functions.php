@@ -15,8 +15,6 @@ function autenticado() : bool {
 
 function fechaEnRango($fecha_inicio, $fecha_fin){
 
-  date_default_timezone_set('America/Mexico_City');
-
   $fecha_inicio = strtotime($fecha_inicio);
   $fecha_fin = strtotime($fecha_fin); 
   $fecha = strtotime(date('Y-m-d'));
