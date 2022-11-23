@@ -6,9 +6,9 @@ class EmpleadoModel{
   private $id_empleado;
   private $password;
   private $nombre;
-  private $apellido_paterno;
-  private $apellido_materno;
-  private $fecha_nacimiento;
+  private $apellido_p;
+  private $apellido_m;
+  private $fecha_nac;
   private $domicilio;
   private $telefono;
   private $tipo;
@@ -22,9 +22,9 @@ class EmpleadoModel{
     $this->id_empleado = 0;
     $this->password = "";
     $this->nombre = "";
-    $this->apellido_paterno = "";
-    $this->apellido_materno = "";
-    $this->fecha_nacimiento = "";
+    $this->apellido_p = "";
+    $this->apellido_m = "";
+    $this->fecha_nac = "";
     $this->domicilio = "";
     $this->telefono = "";
     $this->tipo = "";
@@ -51,9 +51,9 @@ class EmpleadoModel{
     if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL.
       $this->password = mysqli_real_escape_string($this->db, $_POST['password']);
       $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']);      
-      $this->apellido_paterno = mysqli_real_escape_string($this->db, $_POST['apellido_paterno']);
-      $this->apellido_materno = mysqli_real_escape_string($this->db, $_POST['apellido_materno']);
-      $this->fecha_nacimiento = mysqli_real_escape_string($this->db, $_POST['fecha_nacimiento']);
+      $this->apellido_p = mysqli_real_escape_string($this->db, $_POST['apellido_p']);
+      $this->apellido_m = mysqli_real_escape_string($this->db, $_POST['apellido_m']);
+      $this->fecha_nac = mysqli_real_escape_string($this->db, $_POST['fecha_nac']);
       $this->domicilio = mysqli_real_escape_string($this->db, $_POST['domicilio']);
       $this->telefono = mysqli_real_escape_string($this->db, $_POST['telefono']);
       $this->tipo = mysqli_real_escape_string($this->db, $_POST['tipo']);
@@ -64,13 +64,13 @@ class EmpleadoModel{
       if(empty($this->nombre) || is_numeric($this->nombre)){
         $error .= "1";
       }
-      if(empty($this->apellido_paterno) || is_numeric($this->nombre)){
+      if(empty($this->apellido_p) || is_numeric($this->nombre)){
         $error .= "2";
       }
-      if(empty($this->apellido_materno) || is_numeric($this->nombre)){
+      if(empty($this->apellido_m) || is_numeric($this->nombre)){
         $error .= "3";
       }
-      if(empty($this->fecha_nacimiento)){
+      if(empty($this->fecha_nac)){
         $error .= "4";
       }
       if(empty($this->domicilio)){
@@ -105,7 +105,7 @@ class EmpleadoModel{
           $this->tipo = 3;
         }
           
-        $query = $this->db->query("INSERT INTO empleados VALUES('$this->id_empleado', '$passwordHash', '$this->nombre', '$this->apellido_paterno', '$this->apellido_materno', '$this->fecha_nacimiento', '$this->domicilio', '$this->telefono', '$this->tipo')");
+        $query = $this->db->query("INSERT INTO empleados VALUES('$this->id_empleado', '$passwordHash', '$this->nombre', '$this->apellido_p', '$this->apellido_m', '$this->fecha_nac', '$this->domicilio', '$this->telefono', '$this->tipo')");
 
         if($query){
           return true;
@@ -124,9 +124,9 @@ class EmpleadoModel{
       $this->id_empleado = mysqli_real_escape_string($this->db, $id);
       $this->password = mysqli_real_escape_string($this->db, $_POST['password']);
       $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']);      
-      $this->apellido_paterno = mysqli_real_escape_string($this->db, $_POST['apellido_paterno']);
-      $this->apellido_materno = mysqli_real_escape_string($this->db, $_POST['apellido_materno']);
-      $this->fecha_nacimiento = mysqli_real_escape_string($this->db, $_POST['fecha_nacimiento']);
+      $this->apellido_p = mysqli_real_escape_string($this->db, $_POST['apellido_p']);
+      $this->apellido_m = mysqli_real_escape_string($this->db, $_POST['apellido_m']);
+      $this->fecha_nac = mysqli_real_escape_string($this->db, $_POST['fecha_nac']);
       $this->domicilio = mysqli_real_escape_string($this->db, $_POST['domicilio']);
       $this->telefono = mysqli_real_escape_string($this->db, $_POST['telefono']);
       $this->tipo = mysqli_real_escape_string($this->db, $_POST['tipo']);
@@ -137,13 +137,13 @@ class EmpleadoModel{
       if(empty($this->nombre) || is_numeric($this->nombre)){
         $error .= "1";
       }
-      if(empty($this->apellido_paterno) || is_numeric($this->nombre)){
+      if(empty($this->apellido_p) || is_numeric($this->nombre)){
         $error .= "2";
       }
-      if(empty($this->apellido_materno) || is_numeric($this->nombre)){
+      if(empty($this->apellido_m) || is_numeric($this->nombre)){
         $error .= "3";
       }
-      if(empty($this->fecha_nacimiento)){
+      if(empty($this->fecha_nac)){
         $error .= "4";
       }
       if(empty($this->domicilio)){
@@ -171,7 +171,7 @@ class EmpleadoModel{
           $this->tipo = 3;
         }
           
-        $query = $this->db->query("UPDATE empleados SET password = '$passwordHash', nombre = '$this->nombre', apellido_paterno = '$this->apellido_paterno', apellido_materno = '$this->apellido_materno', fecha_nacimiento = '$this->fecha_nacimiento', domicilio = '$this->domicilio', telefono = '$this->telefono', tipo = '$this->tipo' WHERE id_empleado = '$this->id_empleado'");
+        $query = $this->db->query("UPDATE empleados SET password = '$passwordHash', nombre = '$this->nombre', apellido_p = '$this->apellido_p', apellido_m = '$this->apellido_m', fecha_nac = '$this->fecha_nac', domicilio = '$this->domicilio', telefono = '$this->telefono', tipo = '$this->tipo' WHERE id_empleado = '$this->id_empleado'");
 
         if($query){
           return true;

@@ -1,14 +1,14 @@
 <?php
 
-class ClienteModel{
+class UsuarioModel{
   private $db;
 
-  private $id_cliente;
+  private $id_usuario;
   private $nombre;
-  private $apellido_paterno;
-  private $apellido_materno;
+  private $apellido_p;
+  private $apellido_m;
   private $sexo;
-  private $fecha_nacimiento;
+  private $fecha_nac;
   private $peso;
   private $altura;
   private $domicilio;
@@ -18,20 +18,20 @@ class ClienteModel{
   private $fecha_inicio;
   private $fecha_fin;
 
-  private $listaClientes;
+  private $listaUsuarios;
 
   public function __construct(){
     $this->db = Conectar::conexion();
   }
 
-  public function getClientes(){
-    $query = $this->db->query("SELECT * FROM clientes");
+  public function getAll(){
+    $query = $this->db->query("SELECT * FROM usuarios");
 
     while($row = $query->fetch_assoc()) {
-      $this->listaClientes[] = $row;
+      $this->listaUsuarios[] = $row;
     }
 
-    return $this->listaClientes;
+    return $this->listaUsuarios;
   }
 
 }

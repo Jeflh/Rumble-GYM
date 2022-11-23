@@ -5,7 +5,7 @@ class EmpleadoController{
   private $empleadoModel;
 
   public function __construct(){
-    require_once('models/M_Empleado.php');
+    require_once('models/M_empleado.php');
     $this->empleadoModel = new EmpleadoModel();
   }
 
@@ -14,7 +14,7 @@ class EmpleadoController{
     if(!$this->auth){
       header('Location: index.php?c=login');
     }
-    if( $_SESSION['usuario']['tipo'] != '1'){
+    if($_SESSION['usuario']['tipo'] != '1'){
       header('Location: index.php?c=panel');
     }
     $empleados = $this->empleadoModel->getAll();

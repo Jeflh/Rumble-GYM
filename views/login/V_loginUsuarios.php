@@ -44,10 +44,10 @@ require_once 'includes/navUsuario.php';
 
     <h1 class="text-light text-center mt-5"><strong>Inicio de sesión</strong></h1>
     <div class="text-center">
-      <p class="text-muted">Clientes del gimnasio</p>
+      <p class="text-muted">Usuarios del gimnasio</p>
     </div>
     <div class="container d-flex justify-content-center">
-      <form class="col-3" action="index.php?c=login&a=autenticarCliente" method="POST">
+      <form class="col-sm-3" action="index.php?c=login&a=autenticarCliente" method="POST">
         <fieldset>
           <div class="form-group">
             <label for="codigo" class="form-label mt-5">Código</label>
@@ -55,7 +55,7 @@ require_once 'includes/navUsuario.php';
           </div>
           <div class="form-group">
             <label for="fecha_nac" class="form-label mt-3">Fecha de nacimiento</label>
-            <input type="date" min="0" class="form-control" id="fecha_nac" name="fecha_nac" placeholder="Introduce tu contraseña" autocomplete="off">
+            <input type="date" class="form-control" id="fecha_nac" name="fecha_nac" placeholder="Introduce tu contraseña" autocomplete="off" min="1950-01-01" max="<?php $actual = date('Y-m-d'); $nueva = strtotime ('-15 year' , strtotime($actual)); echo date ('Y-m-d', $nueva);?>">
           </div>
           <div class="d-flex justify-content-center mt-4 mb-3">
             <button type="submit" class="btn btn-primary">Iniciar sesión</button>

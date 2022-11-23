@@ -11,8 +11,8 @@
             <a class="nav-link active" href="#"></a>
           </li>
         </ul>
-        <div class="d-flex">
-          <a href="index.php?c=login&a=empleados" class="btn btn-light">Personal</a>
+        <div class="d-flex justify-content-center">
+          <a href="index.php?c=login&a=empleados" class="btn btn-light">Cambiar a empleados</a>
         </div>
       </div>
     </div>

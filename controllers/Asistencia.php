@@ -10,10 +10,10 @@ class AsistenciaController{
       header('Location: index.php');
     }
     require_once('models/M_asistencia.php');
-    require_once('models/M_cliente.php');
+    require_once('models/M_usuario.php');
 
-    $clientes = new ClienteModel();
-    $this->listaInterna = $clientes->getClientes();
+    $usuarios = new UsuarioModel();
+    $this->listaInterna = $usuarios->getAll();
   }
   
   public function guardar(){
@@ -23,19 +23,19 @@ class AsistenciaController{
 
       if(!$existe){
         for($i = 0; $i < count($this->listaInterna); $i++){
-          $asistenciaInicial = array(
-            'id_cliente' => $this->listaInterna[$i]['id_cliente'],
+          $asistenciaInicial [$i] = array(
+            'id_usuario' => $this->listaInterna[$i]['id_usuario'],
             'fecha_asistencia' => $_POST['fecha'],
-            'estado' => '0'
+            'estado' => 0
           );
           $asistencia->setDia($asistenciaInicial[$i]);
         }
         $this->guardar();
       } else {
         $asistenciaActual = array(
-          'id_cliente' => $_POST['id'],
+          'id_usuario' => $_POST['id'],
           'fecha_asistencia' => $_POST['fecha'],
-          'estado' => '1'
+          'estado' => 1
         );
         $asistencia->updateDia($asistenciaActual);
       }

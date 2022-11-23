@@ -85,16 +85,16 @@ date_default_timezone_set('America/Mexico_City');
             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ej. Juan" autocomplete="off">
           </div>
           <div class="form-group">
-            <label for="apellido_paterno" class="form-label mt-2">Apellido Paterno</label>
-            <input type="text" class="form-control" id="apellido_paterno" name="apellido_paterno" placeholder="Ej. Salazar" autocomplete="off">
+            <label for="apellido_p" class="form-label mt-2">Apellido Paterno</label>
+            <input type="text" class="form-control" id="apellido_p" name="apellido_p" placeholder="Ej. Salazar" autocomplete="off">
           </div>
           <div class="form-group">
-            <label for="apellido_materno" class="form-label mt-2">Apellido Materno</label>
-            <input type="text" class="form-control" id="apellido_materno" name="apellido_materno" placeholder="Ej. Corona" autocomplete="off">
+            <label for="apellido_m" class="form-label mt-2">Apellido Materno</label>
+            <input type="text" class="form-control" id="apellido_m" name="apellido_m" placeholder="Ej. Corona" autocomplete="off">
           </div>
           <div class="form-group">
-            <label for="fecha_nacimiento" class="form-label mt-2">Fecha Nacimiento</label>
-            <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" min="1950-01-01" max="<?php $actual = date('Y-m-d'); $nueva = strtotime ('-18 year' , strtotime($actual)); echo date ('Y-m-d', $nueva);?>">
+            <label for="fecha_nac" class="form-label mt-2">Fecha Nacimiento</label>
+            <input type="date" class="form-control" id="fecha_nac" name="fecha_nac" min="1950-01-01" max="<?php $actual = date('Y-m-d'); $nueva = strtotime ('-18 year' , strtotime($actual)); echo date ('Y-m-d', $nueva);?>">
           </div>
           <div class="form-group">
             <label for="domicilio" class="form-label mt-2">Domicilio</label>

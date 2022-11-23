@@ -7,7 +7,7 @@ class LoginController{
   }
 
   public function index(){    
-    require_once('views/login/V_loginClientes.php');
+    require_once('views/login/V_loginUsuarios.php');
   }
 
   public function empleados(){
@@ -30,11 +30,11 @@ class LoginController{
 
       if($error == ""){
         $login = new LoginModel();
-        $cliente = $login->autenticarCliente($codigo, $fecha_nac);
+        $usuario = $login->autenticarCliente($codigo, $fecha_nac);
 
-        if($cliente){ // Si la consulta devuelve un resultado (el usuario existe)
+        if($usuario){ // Si la consulta devuelve un resultado (el usuario existe)
           session_start();
-          $_SESSION['usuario'] = $cliente; // Guardar datos del usuario en la sesión
+          $_SESSION['usuario'] = $usuario; // Guardar datos del usuario en la sesión
           $_SESSION['login'] = true;
           
           header("Location: index.php?c=panel");
@@ -93,7 +93,7 @@ class LoginController{
     $_SESSION = [];
     
     if(isset($_GET['e'])){
-      header("Location: index.php?&e=".$_GET['e']);
+      header("Location: index.php?c=login&e=".$_GET['e']);
     }else{
       header('Location: index.php');
     }
