@@ -36,7 +36,7 @@ class AsistenciaModel{
   }
 
   public function getAsistencias($id, $inicio, $fin){
-    $query = $this->db->query("SELECT * FROM asistencias WHERE id_usuario = '$id' AND fecha_asistencia BETWEEN '$inicio' AND '$fin'");
+    $query = $this->db->query("SELECT id_usuario, estado FROM asistencias WHERE id_usuario = '$id' AND fecha_asistencia BETWEEN '$inicio' AND '$fin'");
 
     while($row = $query->fetch_assoc()) {
       $this->listaAsistencia[] = $row;
