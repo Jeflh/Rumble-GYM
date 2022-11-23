@@ -13,7 +13,7 @@ require_once 'includes/navLogueado.php';
         </svg>
       </a>
       <form action="index.php?c=usuario&a=buscar" method="POST" class="d-flex ms-5">
-        <input class="form-control me-sm-2 ms-5" type="text" placeholder="Introduce código" id="id" name="id">
+        <input class="form-control me-sm-2 ms-5" type="text" placeholder="Introduce código" id="id" name="id" autocomplete="off">
         <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
       </form>
       <a href="index.php?c=usuario&a=nuevo" class="btn btn-info">Agregar usuario</a>
@@ -23,24 +23,53 @@ require_once 'includes/navLogueado.php';
     if (isset($_GET['e'])) {
 
       $status = $_GET['e'];
-
-      if ($status == '0') {
-        echo '<div class="text-center alert alert-dismissible alert-success mb-2">
+      $arrayValues = str_split($status);
+      // Se convierte el string en un array para poder evaluar cada caso.
+      for ($i = 0; $i < count($arrayValues); $i++) {
+        switch ($arrayValues[$i]) { // Se evalua cada caso y muestra la alerata correspondiente
+          case "0":
+            echo '<div class="text-center alert alert-dismissible alert-success mb-2">
           <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
           <strong>Usuario registrado</strong>, el usuario ha sido registrado correctamente.
           </div>';
-      }
-      if ($status == '1') {
-        echo '<div class="text-center alert alert-dismissible alert-success mb-2">
+            break;
+          case "1":
+            echo '<div class="text-center alert alert-dismissible alert-success mb-2">
           <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
           <strong>Usuario actualizado</strong>, el usuario ha sido actualizado correctamente.
           </div>';
-      }
-      if ($status == '2') {
-        echo '<div class="text-center alert alert-dismissible alert-success mb-2">
+            break;
+          case "2":
+            echo '<div class="text-center alert alert-dismissible alert-success mb-2">
           <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
           <strong>Usuario eliminado</strong>, el usuario ha sido eliminado correctamente.
           </div>';
+            break;
+          case "3":
+            echo '<div class="text-center alert alert-dismissible alert-success mb-2">
+          <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+          <strong>Estado actualizado</strong>, el estado del usuario ha sido actualizado.
+          </div>';
+            break;
+          case "4":
+            echo '<div class="text-center alert alert-dismissible alert-success mb-2">
+          <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+          <strong>Suscripcion renovada</strong>, la suscripcion del usuario ha sido renovada.
+          </div>';
+            break;
+          case "5":
+            echo '<div class="text-center alert alert-dismissible alert-danger mb-2">
+          <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+          <strong>Código no válido</strong>, debes introducir un código numérico de 5 digitos.
+          </div>';
+            break;
+          case "6":
+            echo '<div class="text-center alert alert-dismissible alert-danger mb-2">
+          <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+          <strong>Usuario no encontrado</strong>, no se encontraron coincidencias con la busqueda.
+          </div>';
+            break;
+        }
       }
     }
     ?>
@@ -59,7 +88,7 @@ require_once 'includes/navLogueado.php';
       <tbody>
         <?php foreach ($usuarios as $usuario) : ?>
           <tr class="table-default">
-            <th scope="row"><?php echo $usuario['id_usuario']; ?></th>
+            <th scope="row"><a class="text-info" href="index.php?c=usuario&a=ver&id=<?php echo $usuario['id_usuario']; ?>"><?php echo $usuario['id_usuario']; ?></a></th>
             <td><?php
                 if ($usuario['estado'] == '1') {
                   echo '<h5><span class="badge bg-success">Activo</span></h5>';
@@ -106,7 +135,7 @@ require_once 'includes/navLogueado.php';
                 </svg>
               </a>
 
-              <a class="btn btn-danger btn-sm me-1 text-light" href="index.php?c=usuario&a=estado&id=<?php echo $usuario['id_usuario']; ?>">
+              <a class="btn btn-danger btn-sm me-1 text-light" href="index.php?c=usuario&a=cambiarEstado&id=<?php echo $usuario['id_usuario'] . '&s=' . $usuario['estado']; ?>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
                   <path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5zm-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5z" />
                 </svg>

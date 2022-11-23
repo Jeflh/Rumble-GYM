@@ -90,7 +90,7 @@ require_once 'includes/navLogueado.php';
   ?>
 
     <div class="container d-flex justify-content-center">
-      <form class="col-4" action="index.php?c=usuario&a=insertar" method="POST">
+      <form class="col-4" action="index.php?c=usuario&a=actualizar" method="POST">
         <fieldset>
           <div class="form-group">
             <label for="nombre" class="form-label mt-2">Nombre</label>
@@ -142,8 +142,9 @@ require_once 'includes/navLogueado.php';
               <option <?php if($usuario['tipo_suscripcion'] == '4') echo 'selected';?> >4- Anual</option>
             </select>
           </div>
+          <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $usuario['id_usuario'];?>">
           <div class="d-flex justify-content-center mt-2 mb-3">
-            <button type="submit" class="btn btn-primary mt-2">Editar usuario</button>
+            <button type="submit" class="btn btn-primary mt-2">Actualizar usuario</button>
           </div>
         </fieldset>
       </form>

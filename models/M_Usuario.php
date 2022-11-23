@@ -145,6 +145,30 @@ class UsuarioModel{
     }
   }
 
+  public function renovarSuscripcion($id_usuario){
+    $this->id_usuario = $id_usuario;
+    $usuario = $this->getUsuario($this->id_usuario);
+    $this->tipo_suscripcion = $usuario['tipo_suscripcion'];
+    $this->fecha_inicio = date('Y-m-d');
+    if($this->tipo_suscripcion == 1){
+      $this->fecha_fin = date('Y-m-d', strtotime('+1 month'));
+    } else if ($this->tipo_suscripcion == 2){
+      $this->fecha_fin = date('Y-m-d', strtotime('+3 month'));
+    } else if ($this->tipo_suscripcion == 3){
+      $this->fecha_fin = date('Y-m-d', strtotime('+6 month'));
+    } else {
+      $this->fecha_fin = date('Y-m-d', strtotime('+1 year'));
+    }
+
+    $query = $this->db->query("UPDATE usuarios SET fecha_inicio = '$this->fecha_inicio', fecha_fin = '$this->fecha_fin' WHERE id_usuario = '$this->id_usuario'");
+
+    if($query){
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   public function updateUsuario($id_usuario){
     if(isset($_POST)){
       $this->id_usuario = mysqli_real_escape_string($this->db, $id_usuario);
@@ -228,12 +252,33 @@ class UsuarioModel{
           return false;
         }
       } else {
-        header('Location: index.php?c=usuario&a=nuevo&e='.$error);
+        header('Location: index.php?c=usuario&a=editar&e='.$error);
       }
     }
   }
 
-}
+  public function updateEstado($id_usuario, $estado){
+    if(isset($_POST)){
+      if($estado == '1'){
+        $estado = '0';
+      } else {
+        $estado = '1';
+      }
+      $query = $this->db->query("UPDATE usuarios SET estado = '$estado' WHERE id_usuario = '$id_usuario'");
+    }
+  }
 
+  public function deleteUsuario($id_usuario){
+    if(isset($_POST)){
+      $this->id_usuario = $id_usuario;
+      $query = $this->db->query("DELETE FROM usuarios WHERE id_usuario = '$this->id_usuario'");
+      if($query){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  }
+}
 
 ?>
