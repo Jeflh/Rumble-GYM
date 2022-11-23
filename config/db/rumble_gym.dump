@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: rumble_gym
 -- ------------------------------------------------------
--- Server version	8.0.31
+-- Server version	8.0.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -52,9 +52,9 @@ CREATE TABLE `empleados` (
   `id_empleado` int NOT NULL,
   `password` varchar(60) NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  `apellido_p` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `apellido_m` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `fecha_nac` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `apellido_p` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
+  `apellido_m` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
+  `fecha_nac` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
   `domicilio` varchar(150) NOT NULL,
   `telefono` varchar(10) NOT NULL,
   `tipo` int NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE `empleados` (
 
 LOCK TABLES `empleados` WRITE;
 /*!40000 ALTER TABLE `empleados` DISABLE KEYS */;
-INSERT INTO `empleados` VALUES (12345,'$2y$10$6GplZn49y0DqpsJM/4VwrO81ojcUUYXlxnlUrGOznfrtr.KrnL6Om','Juan Emmanuel','Fernández','de Lara','2000-02-21','Gaspar Antonio','3320582950',1),(43024,'$2y$10$SW0WJLpTzSgc2KUg64M/m.G7w4jkO4V4EtXMb4ID22tpjwQgoxmM6','sdasadsad','sadsadsda','sdasad','2004-11-11','assadsad','1231231231',2),(99287,'$2y$10$v3Wt6Ln90znN49JFZweYVOJlYDUMsScRJQHIudMJKPq72BQyk/6dq','sadsadsda','sadsadsad','assadsad','1995-05-04','asdasddsa','1231231231',3);
+INSERT INTO `empleados` VALUES (11111,'$2y$10$SW0WJLpTzSgc2KUg64M/m.G7w4jkO4V4EtXMb4ID22tpjwQgoxmM6','José Raúl','David','Corona','2004-11-11','Su casa','1231231231',1),(12345,'$2y$10$6GplZn49y0DqpsJM/4VwrO81ojcUUYXlxnlUrGOznfrtr.KrnL6Om','Juan Emmanuel','Fernández','de Lara','2000-02-21','Gaspar Antonio','3320582950',1),(99999,'$2y$10$v3Wt6Ln90znN49JFZweYVOJlYDUMsScRJQHIudMJKPq72BQyk/6dq','Juan José','Salazar','Villegas','1995-05-04','Si','1231231231',1);
 /*!40000 ALTER TABLE `empleados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,8 +109,8 @@ DROP TABLE IF EXISTS `usuarios`;
 CREATE TABLE `usuarios` (
   `id_usuario` int NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  `apellido_p` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
-  `apellido_m` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
+  `apellido_p` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
+  `apellido_m` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8_general_ci NOT NULL,
   `sexo` varchar(1) NOT NULL,
   `fecha_nac` date NOT NULL,
   `peso` float NOT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (12345,'Juan Emmanuel','Fernández','de Lara','M','2000-02-21',90,1.89,25.2,'Gaspar Antonio','3320582950',1,1,'2022-11-01','2022-12-01');
+INSERT INTO `usuarios` VALUES (12345,'Juan Emmanuel','Fernández','de Lara','M','2000-02-21',90,1.89,25.2,'Gaspar Antonio 42','3324282110',1,1,'2022-11-23','2022-12-23'),(82905,'Josue Daniel','Rodriguez','Lozano','M','1985-01-01',123,1.8,37.963,'Av. Aztlan 153','1231231231',1,4,'2022-11-23','2023-11-23'),(95753,'Diego','Montoya','Mariscal','M','2010-11-03',75,1.7,25.9516,'La paz 1368','3347811969',1,2,'2022-11-23','2023-02-23');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -173,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-22 16:40:54
+-- Dump completed on 2022-11-23 14:49:05
