@@ -14,7 +14,6 @@ class UsuarioModel{
   private $imc;
   private $domicilio;
   private $telefono;
-  private $estado;
   private $tipo_suscripcion;
   private $fecha_inicio;
   private $fecha_fin;
@@ -112,8 +111,6 @@ class UsuarioModel{
         } else {
           $this->sexo = 'F';
         }
-
-        $inges_mamados_cachondos = true;
 
         $this->imc = $this->peso / ($this->altura * $this->altura);
 
