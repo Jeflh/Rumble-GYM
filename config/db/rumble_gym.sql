@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-11-2022 a las 04:03:48
+-- Tiempo de generación: 24-11-2022 a las 04:48:00
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -204,9 +204,22 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `cantidad`, `precio`) VALUES
-(34562, 'Venda', 'Venda elastica de 5cm de grosor.', 26, 20),
-(45689, 'Mancuernas', 'Par de pesas para correr 1kg', 19, 499.99),
-(62796, 'Jejejeje', 'No se', 12, 50);
+(15100, 'Faja ', 'Calidad de curo de acapotzalco', 5, 295),
+(15102, 'Esteroides Legales', 'Marca Mash-Mey 180 capsulas.', 15103, 449),
+(15104, 'Bote plastico', 'Bote con medicion avalada por asociación metrica.', 15, 210),
+(15105, 'Toalla Fraydey', 'Tamaño pequeño para limpiar sudor de su carita uwu.', 20, 99.99),
+(15106, 'Vitamina B', 'Vitamina para vitaminarte.', 22, 249),
+(15107, 'Kit Mallas y Guantes', 'Malla deportiva talla Ajustable y gauntes.', 5, 350),
+(15990, 'Botella de agua', 'Botella Epurita de 500mlts.', 15, 17),
+(15991, 'Gatorade Ponche', 'Sabor Limón de 1L', 20, 25),
+(15992, 'Bebida energética Amper', 'Bebida carbonatada adicionada con cafeína ', 50, 17),
+(15993, 'Proteína Whey', 'Protenia sabor platano macho 500gr.', 15, 350),
+(15994, 'Carnitina', 'Marca esencial 1200gr.', 50, 299),
+(15995, 'Creatinina', 'Marca Power 350gr.', 6, 320),
+(15996, 'Cafeina', 'Marca Gat-sports 100gm.', 10, 330),
+(15997, 'Glutenamina', 'Marca ForzaGen 330gr.', 10, 480),
+(15998, 'Aminoacidos', 'Marca ForzaGen 360gr.', 20, 439),
+(15999, 'Proteina PRO', 'Marca ForzaGen 2900gr.', 6, 1375);
 
 -- --------------------------------------------------------
 
