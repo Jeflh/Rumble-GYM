@@ -63,7 +63,7 @@ require_once 'includes/navLogueado.php';
       </table>
       </div>
     </div>
-    <p class="text-center">Esta información está basada en las ventas registrada durante los ultimos 30 días.</p>
+    <p class="text-center">Esta información está basada en los ingresos registrados durante los últimos 30 días.</p>
   </div>
 </main>
 

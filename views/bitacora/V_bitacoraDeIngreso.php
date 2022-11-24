@@ -68,7 +68,7 @@ require_once 'includes/navLogueado.php';
         <?php $i++; endforeach; ?>
       </tbody>
     </table>
-    <p class="text-center">Estos datos no toman en cuenta la fecha de registro del usuario, solo las asistencias registradas durante los ultimos 30 días.</p>
+    <p class="text-center">Estos datos no toman en cuenta la fecha de registro del usuario, solo las asistencias registradas durante los últimos 30 días.</p>
   </div>
 </main>
 
