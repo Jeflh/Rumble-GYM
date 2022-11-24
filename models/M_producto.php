@@ -23,7 +23,7 @@ class ProductoModel{
   }
 
   public function getAll(){
-    $query = $this->db->query("SELECT * FROM productos ORDER BY cantidad DESC");
+    $query = $this->db->query("SELECT * FROM productos ORDER BY nombre ASC");
 
     while($row = $query->fetch_assoc()) {
       $this->lista[] = $row;
@@ -131,6 +131,17 @@ class ProductoModel{
         header("Location: index.php?c=producto&a=editar&id=" . $this->id_producto . "&e=" . $error); 
         // Si hay errores, se redirige a la página de editar producto con los errores.
       }
+    }
+  }
+
+  public function updateCantidad($id_producto, $cantidad){
+    $query = $this->db->query("UPDATE productos SET cantidad = '$cantidad' WHERE id_producto = '$id_producto'");
+
+    if($query){
+      return true; // Si se edita correctamente, se devuelve true.
+    }
+    else{
+      return false; // Si no, se devuelve false.
     }
   }
 }
