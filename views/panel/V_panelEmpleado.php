@@ -1,6 +1,8 @@
 <?php
 require_once 'includes/header.php';
 require_once 'includes/navLogueado.php';
+$_SESSION['carrito'] = array();  
+$_SESSION['productos'] = array();
 ?>
 
 <main>
