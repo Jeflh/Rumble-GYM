@@ -25,17 +25,30 @@
       $fechaCorte = date('Y-m-d', strtotime($fechaActual . ' - 1 month'));
       foreach($usuarios as $usuario){//por cada uno de estos hacer un foreach
         $asistencias = $this->asistenciaModel->getAsistencias($usuario['id_usuario'], $fechaCorte, $fechaActual );
+        $countAsist = 0;
+        $valusuario = false;
+        
         // $listaAsistencia  = array(
         //   'asistencias' => $asistencias
         // );
         // $asistencias = null;
       }
-      echo '<pre>';
-      var_dump($asistencias);
-      echo '</pre>';
-      exit;
-
       
+      foreach($asistencias as $asistencia){
+        $valusuario = $usuario['id_usuario'];
+        if($valusuario == $asistencia['id_usuario']){
+          elif($asistencia['asistencia'] == '1'){
+            
+          }
+        }
+
+      //   $countAsist++;
+      // }
+      // echo '<pre>';
+      // var_dump($asistencias);
+      // echo '</pre>';
+      // exit;
+
       require_once('views/bitacora/V_inicioBitacora.php');
     }
 

@@ -45,7 +45,11 @@ class UsuarioController{
 
   public function cambiarEstado(){
     $this->usuarioModel->updateEstado($_GET['id'], $_GET['s']);
+    if($_GET['b'] == '1'){
+      header('Location: index.php?c=bitacora&e=1');
+    }else{
     header('Location: index.php?c=usuario&e=3');
+    }
   }
 
   public function editar(){
