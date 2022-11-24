@@ -29,6 +29,28 @@ require_once 'includes/navLogueado.php';
       }
     }
 
+    if(isset($_POST['eliminar'])){
+      $i = 0;
+      $find = false;
+      foreach ($_SESSION['productos'] as $producto) {
+        if ($producto['id_producto'] == $_POST['id_producto']) {
+          $find = true;
+          break;
+        }
+        $i++;
+      }
+
+      if ($find == true) {
+        $_SESSION['productos'][$i]['cantidad'] += 1;
+        foreach ($_SESSION['carrito'] as $key => $value) {
+          if($value['id_producto'] == $_POST['id_producto']){
+            unset($_SESSION['carrito'][$key]);
+            break;
+          }
+        }
+      }
+    }
+
     if (isset($_POST['codigo'])) {
       if ($_POST['codigo'] != '') {
         if (strlen($_POST['codigo']) == 5) {
@@ -41,8 +63,8 @@ require_once 'includes/navLogueado.php';
             }
             $i++;
           }
-          if($find == true){
-            if($_SESSION['productos'][$i]['cantidad'] > 0){
+          if ($find == true) {
+            if ($_SESSION['productos'][$i]['cantidad'] > 0) {
               $_SESSION['productos'][$i]['cantidad'] -= 1;
               array_push($_SESSION['carrito'], $producto);
             } else {
@@ -51,7 +73,7 @@ require_once 'includes/navLogueado.php';
               <strong>Producto sin existencias</strong>, el producto ya no se encuentra en inventario.
               </div>';
             }
-          }else { // No existe el producto
+          } else { // No existe el producto
             echo '<div class="text-center alert alert-dismissible alert-danger mb-2">
             <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
             <strong>Producto no encontrado</strong>, el producto no se encuentra en inventario.
@@ -113,17 +135,29 @@ require_once 'includes/navLogueado.php';
                   <th scope="col" class="col-1">Código</th>
                   <th scope="col" class="col-1">Nombre</th>
                   <th scope="col" class="col-1">Precio</th>
+                  <th scope="col" class="col-1">Remover</th>
                 </tr>
               </thead>
               <tbody>
-                <?php $sumaTotal = 0;
+                <?php $sumaTotal = 0; $i = 0;
                 foreach ($_SESSION['carrito'] as $producto) : ?>
                   <tr class="table-default">
                     <th scope="row"><?php echo $producto['id_producto']; ?></th>
                     <td><?php echo $producto['nombre']; ?></td>
                     <td><?php echo '$' . $producto['precio']; ?></td>
+                    <td>
+                      <form action="#" method="POST">
+                        <input type="hidden" name="eliminar" value="1">
+                        <input type="hidden" name="id_producto" value="<?php echo $producto['id_producto']; ?>">
+                        <button type="submit" class="btn btn-warning">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-dash-fill" viewBox="0 0 16 16">
+                            <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM6.5 7h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1 0-1z" />
+                          </svg>
+                        </button>
+                      </form>
+                    </td>
                   </tr>
-                <?php $sumaTotal += $producto['precio'];
+                <?php $sumaTotal += $producto['precio']; $i++;
                 endforeach; ?>
                 <tr>
                   <td></td>
@@ -134,10 +168,12 @@ require_once 'includes/navLogueado.php';
             </table>
             <form action="index.php?c=venta&a=confirmar" method="POST">
               <input type="hidden" name="id_empleado" value="<?php echo $empleado['id_empleado']; ?>">
-              <?php $i = 0; foreach ($_SESSION['carrito'] as $producto) : ?>
-                  <input type="hidden" name="<?php echo $i;?>" value="<?php echo $producto['id_producto'];?>"></input>
-              <?php $i++; endforeach; ?>
-              <input type="hidden" name="fecha_venta" value="<?php echo date('Y-m-d');?>">
+              <?php $i = 0;
+              foreach ($_SESSION['carrito'] as $producto) : ?>
+                <input type="hidden" name="<?php echo $i; ?>" value="<?php echo $producto['id_producto']; ?>"></input>
+              <?php $i++;
+              endforeach; ?>
+              <input type="hidden" name="fecha_venta" value="<?php echo date('Y-m-d'); ?>">
               <input type="hidden" name="monto_venta" value="<?php echo $sumaTotal; ?>">
               <div class="d-grid">
                 <button class="btn btn  btn-success" type="submit">Confirmar pago</button>
