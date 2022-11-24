@@ -90,6 +90,7 @@ $usuario = $_SESSION['usuario'];
           <p class="card-text"><strong>Fecha de nacimiento: </strong><?php echo date("d-m-Y", strtotime($usuario['fecha_nac'])); ?></p>
           <p class="card-text"><strong>Domicilio: </strong><?php echo $usuario['domicilio']; ?></p>
           <p class="card-text"><strong>Teléfono: </strong><?php echo $usuario['telefono']; ?></p>
+          <p class="card-text"><strong>Miembro desde: </strong> <?php echo date("d-m-Y", strtotime($usuario['inscrito'])); ?></p>
         </div>
       </div>
     </div>

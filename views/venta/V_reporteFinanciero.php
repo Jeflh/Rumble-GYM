@@ -28,6 +28,7 @@ require_once 'includes/navLogueado.php';
       }
     }
     ?>
+    <h4 class="text-center"><?php echo 'Del ' . date("d-m-Y", strtotime($fechaCorte)) . ' al ' . date("d-m-Y", strtotime($fechaActual));?></h4>
     <div class="d-flex justify-content-center">
       <div class="col-10">
       <table class="table table-dark table-striped table-bordered table-hover text-center">
@@ -52,17 +53,13 @@ require_once 'includes/navLogueado.php';
             </tr>
           <?php $ingresos += $venta['monto_venta'];
           endforeach; ?>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td class="text-end"><strong>Ingresos totales:</strong></td>
-            <td><?php echo '$' . $ingresos; ?></td>
-          </tr>
         </tbody>
       </table>
       </div>
     </div>
+
+    <h3 class="text-center text-success"><strong class="text-light">Ingresos totales: </strong><?php echo '$' . round($ingresos, 2); ?></h3>
+
     <p class="text-center">Esta información está basada en los ingresos registrados durante los últimos 30 días.</p>
   </div>
 </main>

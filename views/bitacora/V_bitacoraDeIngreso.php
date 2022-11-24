@@ -28,13 +28,15 @@ require_once 'includes/navLogueado.php';
       }
     }
     ?>
+    <h4 class="text-center"><?php echo 'Del ' . date("d-m-Y", strtotime($fechaCorte)) . ' al ' . date("d-m-Y", strtotime($fechaActual));?></h4>
     <table class="table table-dark table-striped table-bordered table-hover text-center">
       <thead>
         <tr>
           <th scope="col" class="col-1">Código</th>
           <th scope="col" class="col-3">Nombre</th>
+          <th scope="col" class="col-1">Inscrito</th>
           <th scope="col" class="col-1">Estatus</th>
-          <th scope="col" class="col-5">Asistencia en los ultimos 30 días</th>
+          <th scope="col" class="col-4">Asistencia en los ultimos 30 días</th>
           <th scope="col" class="col-1">Acción</th>
         </tr>
       </thead>
@@ -43,6 +45,7 @@ require_once 'includes/navLogueado.php';
           <tr class="table-default">
             <th scope="row"><?php echo $usuario['id_usuario']; ?></th>
             <td><?php echo $usuario['nombre'] . ' ' . $usuario['apellido_p'] . ' ' . $usuario['apellido_m']; ?></td>
+            <td><?php echo date("d-m-Y", strtotime($usuario['inscrito'])); ?></td>
             <td><?php
                 if ($usuario['estado'] == '1') {
                   echo '<h5><span class="badge bg-success">Activo</span></h5>';

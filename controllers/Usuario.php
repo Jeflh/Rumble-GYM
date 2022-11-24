@@ -3,13 +3,9 @@
 class UsuarioController{
   private $auth;
   private $usuarioModel;
+  private $ventaModel;
 
   public function __construct(){
-    require_once('models/M_usuario.php');
-    $this->usuarioModel = new UsuarioModel();
-  }
-
-  public function index(){
     $this->auth = autenticado();
     if(!$this->auth){
       header('Location: index.php?c=login');
@@ -17,6 +13,13 @@ class UsuarioController{
     if(!$_SESSION['usuario']['tipo']){
       header('Location: index.php?c=panel');
     }
+    require_once('models/M_usuario.php');
+    require_once('models/M_venta.php');
+    $this->usuarioModel = new UsuarioModel();
+    $this->ventaModel = new VentaModel();
+  }
+
+  public function index(){
     $usuarios = $this->usuarioModel->getAll();
     require_once('views/usuario/V_inicioUsuarios.php');
   }
@@ -27,16 +30,42 @@ class UsuarioController{
 
   public function insertar(){
     if(isset($_POST)){
+
+      if(substr($_POST['tipo_suscripcion'], 0, 1) == '1'){
+        $costo = 300;
+      } else if (substr($_POST['tipo_suscripcion'], 0, 1) == '2'){
+        $costo = 855;
+      } else if (substr($_POST['tipo_suscripcion'], 0, 1) == '3'){
+        $costo = 1620;
+      } else {
+        $costo = 2880;
+      }
+
+      $datos = array(
+        'id_empleado' => $_POST['id_empleado'],
+        'fecha_venta' => date('Y-m-d'),
+        'monto_venta' => $costo
+      );
+      
       $resultado = $this->usuarioModel->insertUsuario();
       if($resultado){
+        $this->ventaModel->insertSuscripcion($datos);
         header('Location: index.php?c=usuario&e=0');
       }
     }
   }
 
   public function renovar(){
-    if(isset($_POST)){
-      $resultado = $this->usuarioModel->renovarSuscripcion($_GET['id']);
+    if(isset($_GET)){
+      $this->usuarioModel->renovarSuscripcion($_GET['id']);
+
+      $datos = array(
+        'id_empleado' => $_GET['em'],
+        'fecha_venta' => date('Y-m-d'),
+        'monto_venta' => $_GET['m']
+      );
+
+      $resultado = $this->ventaModel->insertSuscripcion($datos);
       if($resultado){
         header('Location: index.php?c=usuario&e=4');
       }

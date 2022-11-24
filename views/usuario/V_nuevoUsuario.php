@@ -142,6 +142,9 @@ require_once 'includes/navLogueado.php';
               <option>4- Anual - $2880</option>
             </select>
           </div>
+          <div class="form-group">
+              <input type="hidden" name="id_empleado" value="<?php echo $_SESSION['usuario']['id_empleado'];?>">
+          </div>
           <div class="d-flex justify-content-center mt-2 mb-3">
             <button type="submit" class="btn btn-primary mt-2">Agregar usuario</button>
           </div>
