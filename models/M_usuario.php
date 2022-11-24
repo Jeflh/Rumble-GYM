@@ -25,7 +25,7 @@ class UsuarioModel{
   }
 
   public function getAll(){
-    $query = $this->db->query("SELECT * FROM usuarios ORDER BY id_usuario ASC");
+    $query = $this->db->query("SELECT * FROM usuarios ORDER BY estado DESC");
 
     while($row = $query->fetch_assoc()) {
       $this->listaUsuarios[] = $row;
