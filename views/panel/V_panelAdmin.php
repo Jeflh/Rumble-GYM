@@ -11,7 +11,7 @@ $_SESSION['productos'] = array();
     <div class="d-flex justify-content-center mt-4">
       <div class="col card text-white bg-dark me-3" style="max-width: 20rem; text-align: center;">
         <div class="card-header ">
-          <h4 class="">Gestión de empleados</h4>
+          <h4>Gestión de empleados</h4>
         </div>
         <div class="card-body ">
           <a href="index.php?c=empleado" class="link-light">
@@ -25,7 +25,7 @@ $_SESSION['productos'] = array();
 
       <div class="col card text-white bg-dark me-3" style="max-width: 20rem; text-align: center;">
         <div class="card-header ">
-          <h4 class="">Gestión de usuarios</h4>
+          <h4>Gestión de usuarios</h4>
         </div>
         <div class="card-body">
           <a href="index.php?c=usuario" class="link-light">
@@ -38,7 +38,7 @@ $_SESSION['productos'] = array();
 
       <div class="col card text-white bg-dark me-3" style="max-width: 20rem; text-align: center;">
         <div class="card-header ">
-          <h4 class="">Inventario</h4>
+          <h4>Inventario</h4>
         </div>
         <div class="card-body">
           <a href="index.php?c=producto" class="link-light">
@@ -53,7 +53,7 @@ $_SESSION['productos'] = array();
     <div class="d-flex justify-content-center mt-4">
       <div class="col card text-white bg-dark mb-3 me-3" style="max-width: 20rem; text-align: center;">
         <div class="card-header ">
-          <h4 class="">Bitacora de acceso</h4>
+          <h4>Bitacora de acceso</h4>
         </div>
         <div class="card-body ">
           <a href="index.php?c=bitacora" class="link-light">
@@ -67,7 +67,7 @@ $_SESSION['productos'] = array();
 
       <div class="col card text-white bg-dark mb-3 me-3" style="max-width: 20rem; text-align: center;">
         <div class="card-header ">
-          <h4 class="">Punto de venta</h4>
+          <h4>Punto de venta</h4>
         </div>
         <div class="card-body">
           <a href="index.php?c=venta" class="link-light">
@@ -80,10 +80,10 @@ $_SESSION['productos'] = array();
 
       <div class="col card text-white bg-dark  mb-3 me-3" style="max-width: 20rem; text-align: center;">
         <div class="card-header ">
-          <h4 class="">Reporte de ventas</h4>
+          <h4>Reporte financiero</h4>
         </div>
         <div class="card-body">
-          <a href="" class="link-light">
+          <a href="index.php?c=reporte" class="link-light">
             <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-clipboard2-data" viewBox="0 0 16 16">
               <path d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" />
               <path d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" />
