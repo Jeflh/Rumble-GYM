@@ -1,10 +1,6 @@
 <?php
 require_once 'includes/header.php';
 require_once 'includes/navLogueado.php';
-
-// echo "<pre>";
-// var_dump($_SESSION['productos']);
-// echo "</pre>";
 ?>
 
 <main>
@@ -29,6 +25,7 @@ require_once 'includes/navLogueado.php';
         <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
         <strong>Venta exitosa</strong>, la venta ha sido confirmada.
         </div>';
+        $_SESSION['carrito'] = array();
       }
     }
 
