@@ -31,7 +31,7 @@ require_once 'includes/navLogueado.php';
     <table class="table table-dark table-striped table-bordered table-hover text-center">
       <thead>
         <tr>
-          <th scope="col" class="col-1">ID</th>
+          <th scope="col" class="col-1">Código</th>
           <th scope="col" class="col-3">Nombre</th>
           <th scope="col" class="col-1">Estatus</th>
           <th scope="col" class="col-5">Asistencia en los ultimos 30 días</th>
