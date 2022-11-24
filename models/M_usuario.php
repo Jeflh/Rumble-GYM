@@ -62,7 +62,6 @@ class UsuarioModel{
         $this->tipo_suscripcion = '';
       }
       $this->fecha_inicio = date('Y-m-d');
-      //$this->fecha_fin = date('Y-m-d', strtotime('+1 month'));
 
       $error = '';
 
@@ -130,7 +129,6 @@ class UsuarioModel{
 
         $query = $this->db->query("INSERT INTO usuarios VALUES ('$this->id_usuario', '$this->nombre', '$this->apellido_p', '$this->apellido_m', '$this->sexo', '$this->fecha_nac', '$this->peso', '$this->altura', '$this->imc', '$this->domicilio', '$this->telefono', '1', '$this->tipo_suscripcion', '$this->fecha_inicio', '$this->fecha_fin')");
 
-        
         if($query){
           return true;
         }else{
