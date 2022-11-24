@@ -45,7 +45,7 @@ class BitacoraController{
       $sumaAsistencia = 0;
     }
 
-    require_once('views/bitacora/V_inicioBitacora.php');
+    require_once('views/bitacora/V_bitacoraDeIngreso.php');
   }
 }
 ?>
