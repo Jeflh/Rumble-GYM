@@ -29,6 +29,17 @@ class VentaModel{
     }
   }
 
+
+  public function getVentas($fechaCorte, $fechaActual){
+    $query = $this->db->query("SELECT * FROM ventas WHERE fecha_venta BETWEEN '$fechaCorte' AND '$fechaActual' ORDER BY monto_venta DESC");
+
+    while($row = $query->fetch_assoc()){
+      $this->listaVentas[] = $row;
+    }
+
+    return $this->listaVentas;
+  }
+
 }
 
 ?>
