@@ -66,7 +66,7 @@ class ProductoModel{
         $this->id_producto = generarId();
         $existe = $this->getProducto($this->id_producto);
         while($existe != null){
-          $this->id_usuario = generarId();
+          $this->id_producto = generarId();
           $existe = $this->getProducto($this->id_producto);
         }
 
