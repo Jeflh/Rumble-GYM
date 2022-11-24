@@ -23,7 +23,7 @@ class ProductoModel{
   }
 
   public function getAll(){
-    $query = $this->db->query("SELECT * FROM productos ORDER BY id_producto ASC");
+    $query = $this->db->query("SELECT * FROM productos ORDER BY cantidad DESC");
 
     while($row = $query->fetch_assoc()) {
       $this->lista[] = $row;
@@ -62,7 +62,15 @@ class ProductoModel{
       }
 
       if($error == ""){ // Si no hay errores, se inserta el producto.
-        $query = $this->db->query("INSERT INTO productos (nombre, descripcion, cantidad, precio) VALUES ('$this->nombre', '$this->descripcion', '$this->cantidad', '$this->precio')");
+
+        $this->id_producto = generarId();
+        $existe = $this->getProducto($this->id_producto);
+        while($existe != null){
+          $this->id_usuario = generarId();
+          $existe = $this->getProducto($this->id_producto);
+        }
+
+        $query = $this->db->query("INSERT INTO productos VALUES('$this->id_producto', '$this->nombre', '$this->descripcion', '$this->cantidad', '$this->precio')");
 
         if($query){
           return true; // Si se inserta correctamente, se devuelve true.
