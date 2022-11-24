@@ -68,7 +68,7 @@ CREATE TABLE `empleados` (
 
 LOCK TABLES `empleados` WRITE;
 /*!40000 ALTER TABLE `empleados` DISABLE KEYS */;
-INSERT INTO `empleados` VALUES (11111,'$2y$10$SW0WJLpTzSgc2KUg64M/m.G7w4jkO4V4EtXMb4ID22tpjwQgoxmM6','José Raúl','David','Corona','2004-11-11','Su casa','1231231231',1),(12345,'$2y$10$6GplZn49y0DqpsJM/4VwrO81ojcUUYXlxnlUrGOznfrtr.KrnL6Om','Juan Emmanuel','Fernández','de Lara','2000-02-21','Gaspar Antonio','3320582950',1),(99999,'$2y$10$v3Wt6Ln90znN49JFZweYVOJlYDUMsScRJQHIudMJKPq72BQyk/6dq','Juan José','Salazar','Villegas','1995-05-04','Si','1231231231',1);
+INSERT INTO `empleados` VALUES (11111,'$2y$10$8eOSaETWwK02t8fNurttWeNLBnAga.sDZJLm0tv/n.P44gtcajlW6','José Raúl','David','Corona','2004-11-11','Tonalá','3689543268',1),(12345,'$2y$10$6GplZn49y0DqpsJM/4VwrO81ojcUUYXlxnlUrGOznfrtr.KrnL6Om','Juan Emmanuel','Fernández','de Lara','2000-02-21','Gaspar Antonio','3320582950',1),(77777,'$2y$10$EioVsRqxgjeSxVzdSRpDCeOKxjkR5Tr2IAtDaQ5GySU3P3BGxbvcG','Gilberto','Suarez','Esparza','1982-05-15','Av. Comprisa 658','3376541108',3),(88888,'$2y$10$D2p.ZoHpz3tbqK4hC.KGAO4c4.OhuqfzYx0WKWZU5SNHyf9qTCWNO','Julian','Ordaz','Fuentes','2002-09-19','Calle Matamoros 4444','3366994854',2),(99999,'$2y$10$5qoqJmjX5B6ZNop0mIcx6.jrHgWXKb4bUj12Y4EHhjMquBrrXll4u','Juan José','Salazar','Villegas','1995-05-04','Cerro del 4','1231231231',1);
 /*!40000 ALTER TABLE `empleados` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -95,7 +95,7 @@ CREATE TABLE `productos` (
 
 LOCK TABLES `productos` WRITE;
 /*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (15100,'Faja ','Calidad de curo de acapotzalco',5,295),(15101,'Bote plastico','Bote graduado de 1L.',15,210),(15102,'Toalla Fraydey','30 x 15cm, 100% algodón.',20,100),(15103,'Vitamina B','Vitamina para vitaminarte.',22,249),(15104,'Malla','Malla deportiva unitalla.',1,249),(15105,'Botella de agua','Botella Epurita de 500mlts.',15,17),(15106,'Gatorade Ponche','Sabor Limón de 1L',20,25),(15107,'Bebida Amper','Bebida energética carbonatada.',48,17),(15108,'Proteína Whey','Protenia sabor platano 500gr.',15,350),(15109,'Carnitina','Marca esencial 1200gr.',50,299),(15110,'Creatinina','Marca Power 350gr.',6,320),(15111,'Cafeina','Marca Gat-sports 100gm.',10,330),(15112,'Glutenamina','Marca ForzaGen 330gr.',10,480),(15113,'Aminoacidos','Marca ForzaGen 360gr.',20,439),(15114,'Proteina PRO','Marca ForzaGen 2900gr.',6,1375);
+INSERT INTO `productos` VALUES (15100,'Faja ','Calidad de curo de acapotzalco',5,295),(15101,'Bote plastico','Bote graduado de 1L.',15,210),(15102,'Toalla Fraydey','30 x 15cm, 100% algodón.',19,100),(15103,'Vitamina B','Vitamina para vitaminarte.',22,249),(15104,'Malla','Malla deportiva unitalla.',1,249),(15105,'Botella de agua','Botella Epurita de 500mlts.',15,17),(15106,'Gatorade Ponche','Sabor Limón de 1L',19,25),(15107,'Bebida Amper','Bebida energética carbonatada.',44,17),(15108,'Proteína Whey','Protenia sabor platano 500gr.',15,350),(15109,'Carnitina','Marca esencial 1200gr.',46,299),(15110,'Creatinina','Marca Power 350gr.',6,320),(15111,'Cafeina','Marca Gat-sports 100gm.',10,330),(15112,'Glutenamina','Marca ForzaGen 330gr.',10,480),(15113,'Aminoacidos','Marca ForzaGen 360gr.',19,439),(15114,'Proteina PRO','Marca ForzaGen 2900gr.',6,1375);
 /*!40000 ALTER TABLE `productos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,10 +148,11 @@ CREATE TABLE `ventas` (
   `id_empleado` int NOT NULL,
   `fecha_venta` date NOT NULL,
   `monto_venta` float NOT NULL,
+  `tipo` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_venta`),
   KEY `id_empleado_idx` (`id_empleado`),
   CONSTRAINT `id_empleado` FOREIGN KEY (`id_empleado`) REFERENCES `empleados` (`id_empleado`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,7 +161,7 @@ CREATE TABLE `ventas` (
 
 LOCK TABLES `ventas` WRITE;
 /*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
-INSERT INTO `ventas` VALUES (1,12345,'2022-11-24',17);
+INSERT INTO `ventas` VALUES (1,12345,'2022-11-24',117,1),(2,12345,'2022-11-24',846,1),(3,12345,'2022-11-24',341,1),(4,12345,'2022-11-24',287,1),(5,12345,'2022-11-24',468,1),(6,12345,'2022-11-24',514,1),(7,99999,'2022-11-23',300,2),(8,99999,'2022-11-23',1620,2),(9,99999,'2022-11-23',2880,2),(10,99999,'2022-11-23',855,2);
 /*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -177,4 +178,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-24  1:42:04
+-- Dump completed on 2022-11-24  2:54:33
