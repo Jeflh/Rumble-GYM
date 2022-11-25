@@ -13,7 +13,7 @@
         <fieldset>
           <div class="form-group">
             <label for="codigo" class="form-label mt-5">Código</label>
-            <input type="text" class="form-control" step="0" id="codigo" name="codigo" placeholder="Introduce tu código" autocomplete="off">
+            <input type="text" class="form-control" step="0" id="codigo" name="codigo" placeholder="Introduce tu código" autocomplete="off" size="5" maxlength="5">
           </div>
           <div class="form-group">
             <label for="fecha_nac" class="form-label mt-3">Fecha de nacimiento</label>
