@@ -14,7 +14,7 @@ require_once 'includes/navLogueado.php';
         </svg>
       </a>
       <form action="index.php?c=usuario&a=buscar" method="POST" class="d-flex ms-5">
-        <input class="form-control me-sm-2 ms-5" type="text" placeholder="Introduce código" id="id" name="id" autocomplete="off">
+        <input class="form-control me-sm-2 ms-5" type="text" placeholder="Introduce código" maxlength="5" id="id" name="id" autocomplete="off">
         <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
       </form>
       <a href="index.php?c=usuario&a=nuevo" class="btn btn-info">Agregar usuario</a>

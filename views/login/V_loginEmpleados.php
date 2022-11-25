@@ -50,7 +50,7 @@ require_once 'includes/navAdmin.php';
         <fieldset>
           <div class="form-group">
             <label for="codigo" class="form-label mt-5">Código</label>
-            <input type="text" class="form-control" step="0" id="codigo" name="codigo" placeholder="Introduce tu código" autocomplete="off">
+            <input type="text" class="form-control" step="0" id="codigo" name="codigo" placeholder="Introduce tu código" maxlength="5" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="password" class="form-label mt-3">Contraseña</label>
