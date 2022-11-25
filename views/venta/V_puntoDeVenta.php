@@ -30,7 +30,7 @@ require_once 'includes/navLogueado.php';
     }
 
     if (isset($_POST['monto'])) {
-      if ($_POST['monto'] < $_POST['suma']) {
+      if ($_POST['monto'] < $_POST['suma'] || $_POST['monto'] == '') {
         echo '<div class="text-center alert alert-dismissible alert-danger mb-2">
         <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
         <strong>Monto insuficiente</strong>, el monto ingresado es menor al total de la venta.
@@ -187,7 +187,7 @@ require_once 'includes/navLogueado.php';
               </div>
             </form>
 
-            <?php if (isset($_POST['monto'])) $cambio = $_POST['monto'] - $sumaTotal; ?>
+            <?php if (isset($_POST['monto']) && $_POST['monto'] != '') $cambio = $_POST['monto'] - $sumaTotal; ?>
 
             <?php if (isset($cambio) && $cambio >= 0) : ?>
               <div class="d-flex justify-content-center">
