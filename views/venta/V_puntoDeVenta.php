@@ -181,7 +181,7 @@ require_once 'includes/navLogueado.php';
 
             <form action="#" method="POST" class="d-flex justify-content-center">
               <input type="hidden" name="suma" value="<?php echo $sumaTotal; ?>">
-              <input class="form-control w-50 input-sm text-end" min="0" type="number" name="monto" value="<?php if (isset($_POST['monto'])) echo $_POST['monto'] ?>">
+              <input class="form-control w-50 input-sm text-end" min="0" step="0.01" type="number" name="monto" value="<?php if (isset($_POST['monto'])) echo $_POST['monto'] ?>">
               <div>
                 <button class="btn btn btn-success ms-2" type="submit">Ingresar monto</button>
               </div>
