@@ -1,59 +1,143 @@
--- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost    Database: rumble_gym
--- ------------------------------------------------------
--- Server version	8.0.29
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 24-11-2022 a las 04:48:00
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
--- Table structure for table `asistencias`
+-- Base de datos: `rumble_gym`
 --
 
-DROP TABLE IF EXISTS `asistencias`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `asistencias`
+--
+
 CREATE TABLE `asistencias` (
-  `id_asistencias` int NOT NULL AUTO_INCREMENT,
-  `id_cliente` int NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `fecha_asistencia` date NOT NULL,
-  `estado` tinyint NOT NULL,
-  PRIMARY KEY (`id_asistencias`),
-  KEY `id_cliente_idx` (`id_cliente`),
-  CONSTRAINT `id_cliente` FOREIGN KEY (`id_cliente`) REFERENCES `clientes` (`id_cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `estado` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `asistencias`
+-- Volcado de datos para la tabla `asistencias`
 --
 
-LOCK TABLES `asistencias` WRITE;
-/*!40000 ALTER TABLE `asistencias` DISABLE KEYS */;
-/*!40000 ALTER TABLE `asistencias` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `asistencias` (`id_usuario`, `fecha_asistencia`, `estado`) VALUES
+(95753, '2022-11-01', 1),
+(95753, '2022-11-02', 1),
+(95753, '2022-11-03', 1),
+(95753, '2022-11-04', 1),
+(95753, '2022-11-05', 1),
+(95753, '2022-11-06', 1),
+(95753, '2022-11-07', 1),
+(95753, '2022-11-08', 0),
+(95753, '2022-11-09', 1),
+(95753, '2022-11-10', 0),
+(95753, '2022-11-11', 0),
+(95753, '2022-11-12', 1),
+(95753, '2022-11-13', 1),
+(95753, '2022-11-14', 0),
+(95753, '2022-11-15', 1),
+(95753, '2022-11-16', 1),
+(95753, '2022-11-17', 1),
+(95753, '2022-11-18', 1),
+(95753, '2022-11-19', 1),
+(95753, '2022-11-20', 0),
+(95753, '2022-11-21', 1),
+(95753, '2022-11-22', 1),
+(82905, '2022-11-01', 0),
+(82905, '2022-11-02', 0),
+(82905, '2022-11-03', 1),
+(82905, '2022-11-04', 1),
+(82905, '2022-11-05', 0),
+(82905, '2022-11-06', 1),
+(82905, '2022-11-07', 1),
+(82905, '2022-11-08', 1),
+(82905, '2022-11-09', 1),
+(82905, '2022-11-10', 1),
+(82905, '2022-11-11', 1),
+(82905, '2022-11-12', 1),
+(82905, '2022-11-13', 1),
+(82905, '2022-11-14', 1),
+(82905, '2022-11-15', 1),
+(82905, '2022-11-16', 1),
+(82905, '2022-11-17', 1),
+(82905, '2022-11-18', 1),
+(82905, '2022-11-19', 1),
+(82905, '2022-11-20', 1),
+(82905, '2022-11-21', 1),
+(82905, '2022-11-22', 1),
+(74194, '2022-11-01', 0),
+(74194, '2022-11-02', 0),
+(74194, '2022-11-03', 0),
+(74194, '2022-11-04', 1),
+(74194, '2022-11-05', 0),
+(74194, '2022-11-06', 1),
+(74194, '2022-11-07', 1),
+(74194, '2022-11-08', 1),
+(74194, '2022-11-09', 0),
+(74194, '2022-11-10', 1),
+(74194, '2022-11-11', 1),
+(74194, '2022-11-12', 1),
+(74194, '2022-11-13', 1),
+(74194, '2022-11-14', 1),
+(74194, '2022-11-15', 0),
+(74194, '2022-11-16', 1),
+(74194, '2022-11-17', 1),
+(74194, '2022-11-18', 1),
+(74194, '2022-11-19', 1),
+(74194, '2022-11-20', 1),
+(74194, '2022-11-21', 1),
+(74194, '2022-11-22', 1),
+(12345, '2022-11-01', 1),
+(12345, '2022-11-02', 1),
+(12345, '2022-11-03', 1),
+(12345, '2022-11-04', 1),
+(12345, '2022-11-05', 0),
+(12345, '2022-11-06', 1),
+(12345, '2022-11-07', 1),
+(12345, '2022-11-08', 1),
+(12345, '2022-11-09', 0),
+(12345, '2022-11-10', 1),
+(12345, '2022-11-11', 1),
+(12345, '2022-11-12', 1),
+(12345, '2022-11-13', 1),
+(12345, '2022-11-14', 0),
+(12345, '2022-11-15', 0),
+(12345, '2022-11-16', 1),
+(12345, '2022-11-17', 1),
+(12345, '2022-11-18', 1),
+(12345, '2022-11-19', 0),
+(12345, '2022-11-20', 1),
+(12345, '2022-11-21', 1),
+(12345, '2022-11-22', 1);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `clientes`
+-- Estructura de tabla para la tabla `clientes`
 --
 
-DROP TABLE IF EXISTS `clientes`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `clientes` (
-  `id_cliente` int NOT NULL,
+  `id_cliente` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `apellido_paterno` varchar(45) NOT NULL,
-  `apellido_m` varchar(45) NOT NULL,
+  `apellido_materno` varchar(45) NOT NULL,
   `sexo` varchar(1) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `peso` float NOT NULL,
@@ -61,112 +145,189 @@ CREATE TABLE `clientes` (
   `imc` float NOT NULL,
   `domicilio` varchar(150) NOT NULL,
   `telefono` varchar(10) NOT NULL,
-  `estado` tinyint NOT NULL,
-  `tipo_suscripcion` int NOT NULL,
-  `estado_suscripcion` tinyint NOT NULL,
+  `estado` tinyint(4) NOT NULL,
+  `tipo_suscripcion` int(11) NOT NULL,
   `fecha_inicio` date NOT NULL,
-  `fecha_fin` date NOT NULL,
-  PRIMARY KEY (`id_cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `fecha_fin` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `clientes`
+-- Volcado de datos para la tabla `clientes`
 --
 
-LOCK TABLES `clientes` WRITE;
-/*!40000 ALTER TABLE `clientes` DISABLE KEYS */;
-/*!40000 ALTER TABLE `clientes` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `clientes` (`id_cliente`, `nombre`, `apellido_paterno`, `apellido_materno`, `sexo`, `fecha_nacimiento`, `peso`, `altura`, `imc`, `domicilio`, `telefono`, `estado`, `tipo_suscripcion`, `fecha_inicio`, `fecha_fin`) VALUES
+(12345, 'Juan Emmanuel', 'Fernández', 'de Lara', 'M', '2000-02-21', 90, 1.89, 25.2, 'Gaspar Antonio', '3320582950', 1, 1, '2022-11-01', '2022-12-01');
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `empleados`
+-- Estructura de tabla para la tabla `empleados`
 --
 
-DROP TABLE IF EXISTS `empleados`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `empleados` (
-  `id_empleado` int NOT NULL,
+  `id_empleado` int(11) NOT NULL,
   `password` varchar(60) NOT NULL,
   `nombre` varchar(45) NOT NULL,
-  `apellido_paterno` varchar(45) NOT NULL,
-  `apellino_materno` varchar(45) NOT NULL,
-  `fecha_nacimiento` varchar(45) NOT NULL,
+  `apellido_p` varchar(45) NOT NULL,
+  `apellido_m` varchar(45) NOT NULL,
+  `fecha_nac` varchar(45) NOT NULL,
   `domicilio` varchar(150) NOT NULL,
   `telefono` varchar(10) NOT NULL,
-  `tipo` int NOT NULL,
-  PRIMARY KEY (`id_empleado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `tipo` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `empleados`
+-- Volcado de datos para la tabla `empleados`
 --
 
-LOCK TABLES `empleados` WRITE;
-/*!40000 ALTER TABLE `empleados` DISABLE KEYS */;
-/*!40000 ALTER TABLE `empleados` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `empleados` (`id_empleado`, `password`, `nombre`, `apellido_p`, `apellido_m`, `fecha_nac`, `domicilio`, `telefono`, `tipo`) VALUES
+(11111, '$2y$10$SW0WJLpTzSgc2KUg64M/m.G7w4jkO4V4EtXMb4ID22tpjwQgoxmM6', 'José Raúl', 'David', 'Corona', '2004-11-11', 'Su casa', '1231231231', 1),
+(12345, '$2y$10$6GplZn49y0DqpsJM/4VwrO81ojcUUYXlxnlUrGOznfrtr.KrnL6Om', 'Juan Emmanuel', 'Fernández', 'de Lara', '2000-02-21', 'Gaspar Antonio', '3320582950', 1),
+(99999, '$2y$10$v3Wt6Ln90znN49JFZweYVOJlYDUMsScRJQHIudMJKPq72BQyk/6dq', 'Juan José', 'Salazar', 'Villegas', '1995-05-04', 'Si', '1231231231', 1);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `productos`
+-- Estructura de tabla para la tabla `productos`
 --
 
-DROP TABLE IF EXISTS `productos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `productos` (
-  `id_producto` int NOT NULL AUTO_INCREMENT,
+  `id_producto` int(11) NOT NULL,
   `nombre` varchar(45) NOT NULL,
   `descripcion` varchar(200) NOT NULL,
-  `cantidad` int NOT NULL,
-  `precio` float NOT NULL,
-  PRIMARY KEY (`id_producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `cantidad` int(11) NOT NULL,
+  `precio` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `productos`
+-- Volcado de datos para la tabla `productos`
 --
 
-LOCK TABLES `productos` WRITE;
-/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-INSERT INTO `productos` VALUES (1,'Proteina','300gr',5,380),(2,'Mancuernas','Par de pesas para correr 150gr',12,450);
-/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
-UNLOCK TABLES;
+INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `cantidad`, `precio`) VALUES
+(15100, 'Faja ', 'Calidad de curo de acapotzalco', 5, 295),
+(15102, 'Esteroides Legales', 'Marca Mash-Mey 180 capsulas.', 15103, 449),
+(15104, 'Bote plastico', 'Bote con medicion avalada por asociación metrica.', 15, 210),
+(15105, 'Toalla Fraydey', 'Tamaño pequeño para limpiar sudor de su carita uwu.', 20, 99.99),
+(15106, 'Vitamina B', 'Vitamina para vitaminarte.', 22, 249),
+(15107, 'Kit Mallas y Guantes', 'Malla deportiva talla Ajustable y gauntes.', 5, 350),
+(15990, 'Botella de agua', 'Botella Epurita de 500mlts.', 15, 17),
+(15991, 'Gatorade Ponche', 'Sabor Limón de 1L', 20, 25),
+(15992, 'Bebida energética Amper', 'Bebida carbonatada adicionada con cafeína ', 50, 17),
+(15993, 'Proteína Whey', 'Protenia sabor platano macho 500gr.', 15, 350),
+(15994, 'Carnitina', 'Marca esencial 1200gr.', 50, 299),
+(15995, 'Creatinina', 'Marca Power 350gr.', 6, 320),
+(15996, 'Cafeina', 'Marca Gat-sports 100gm.', 10, 330),
+(15997, 'Glutenamina', 'Marca ForzaGen 330gr.', 10, 480),
+(15998, 'Aminoacidos', 'Marca ForzaGen 360gr.', 20, 439),
+(15999, 'Proteina PRO', 'Marca ForzaGen 2900gr.', 6, 1375);
+
+-- --------------------------------------------------------
 
 --
--- Table structure for table `ventas`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
-DROP TABLE IF EXISTS `ventas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `usuarios` (
+  `id_usuario` int(11) NOT NULL,
+  `nombre` varchar(45) NOT NULL,
+  `apellido_p` varchar(45) NOT NULL,
+  `apellido_m` varchar(45) NOT NULL,
+  `sexo` varchar(1) NOT NULL,
+  `fecha_nac` date NOT NULL,
+  `peso` float NOT NULL,
+  `altura` float NOT NULL,
+  `imc` float NOT NULL,
+  `domicilio` varchar(150) NOT NULL,
+  `telefono` varchar(10) NOT NULL,
+  `estado` tinyint(4) NOT NULL,
+  `tipo_suscripcion` int(11) NOT NULL,
+  `fecha_inicio` date NOT NULL,
+  `fecha_fin` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido_p`, `apellido_m`, `sexo`, `fecha_nac`, `peso`, `altura`, `imc`, `domicilio`, `telefono`, `estado`, `tipo_suscripcion`, `fecha_inicio`, `fecha_fin`) VALUES
+(12345, 'Juan Emmanuel', 'Fernández', 'de Lara', 'M', '2000-02-21', 90, 1.89, 25.2, 'Gaspar Antonio 42', '3324282110', 1, 1, '2022-11-23', '2022-12-23'),
+(74194, 'Lachin', 'Berenice', 'Valeria', 'F', '2001-02-08', 67, 1.67, 24.0238, 'Allá con el chente', '3366998877', 1, 3, '2022-11-23', '2023-02-23'),
+(82905, 'Josue Daniel', 'Rodriguez', 'Lozano', 'M', '1985-01-01', 123, 1.8, 37.963, 'Av. Aztlan 153', '1231231231', 1, 4, '2022-11-23', '2023-11-23'),
+(95753, 'Diego', 'Montoya', 'Mariscal', 'M', '2010-11-03', 75, 1.72, 25.3515, 'La paz 1368', '3347811969', 1, 2, '2022-11-23', '2023-02-23');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
 CREATE TABLE `ventas` (
-  `id_venta` int NOT NULL AUTO_INCREMENT,
+  `id_venta` int(11) NOT NULL,
   `fecha_venta` date NOT NULL,
-  `monto_venta` float NOT NULL,
-  PRIMARY KEY (`id_venta`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
+  `monto_venta` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `ventas`
+-- Índices para tablas volcadas
 --
 
-LOCK TABLES `ventas` WRITE;
-/*!40000 ALTER TABLE `ventas` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ventas` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+--
+-- Indices de la tabla `asistencias`
+--
+ALTER TABLE `asistencias`
+  ADD KEY `id_cliente_idx` (`id_usuario`);
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id_cliente`);
+
+--
+-- Indices de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  ADD PRIMARY KEY (`id_empleado`);
+
+--
+-- Indices de la tabla `productos`
+--
+ALTER TABLE `productos`
+  ADD PRIMARY KEY (`id_producto`);
+
+--
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id_usuario`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`id_venta`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `id_venta` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `asistencias`
+--
+ALTER TABLE `asistencias`
+  ADD CONSTRAINT `id_cliente` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2022-11-19  0:13:40

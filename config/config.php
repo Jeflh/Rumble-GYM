@@ -1,6 +1,6 @@
 <?php
 	
-	define("MAIN_CONTROLLER", "login");
+	define("MAIN_CONTROLLER", "panel");
 	define("MAIN_ACTION", "index");
 	
 ?>

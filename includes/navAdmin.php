@@ -11,8 +11,8 @@
             <a class="nav-link active" href="#"></a>
           </li>
         </ul>
-        <div class="d-flex">
-          <a href="index.php" class="btn btn-light">Cliente</a>
+        <div class="d-flex justify-content-center">
+          <a href="index.php" class="btn btn-light">Cambiar a usuarios</a>
         </div>
       </div>
     </div>

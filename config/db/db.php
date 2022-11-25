@@ -1,4 +1,4 @@
-<?php
+<?php // funcion para conectar la base de datos
 class Conectar{
 
   public static function conexion(){

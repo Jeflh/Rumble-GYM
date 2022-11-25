@@ -23,7 +23,7 @@ class ProductoModel{
   }
 
   public function getAll(){
-    $query = $this->db->query("SELECT * FROM productos ORDER BY id_producto ASC");
+    $query = $this->db->query("SELECT * FROM productos ORDER BY nombre ASC");
 
     while($row = $query->fetch_assoc()) {
       $this->lista[] = $row;
@@ -40,8 +40,8 @@ class ProductoModel{
   }
 
   public function insertProducto(){ // Función para insertar un producto.
-    if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL.
-      $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']);
+    if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL. 
+      $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']); 
       $this->descripcion = mysqli_real_escape_string($this->db, $_POST['descripcion']);
       $this->cantidad = mysqli_real_escape_string($this->db, $_POST['cantidad']);
       $this->precio = mysqli_real_escape_string($this->db, $_POST['precio']);
@@ -62,7 +62,15 @@ class ProductoModel{
       }
 
       if($error == ""){ // Si no hay errores, se inserta el producto.
-        $query = $this->db->query("INSERT INTO productos (nombre, descripcion, cantidad, precio) VALUES ('$this->nombre', '$this->descripcion', '$this->cantidad', '$this->precio')");
+
+        $this->id_producto = generarId();
+        $existe = $this->getProducto($this->id_producto);
+        while($existe != null){
+          $this->id_producto = generarId();
+          $existe = $this->getProducto($this->id_producto);
+        }
+
+        $query = $this->db->query("INSERT INTO productos VALUES('$this->id_producto', '$this->nombre', '$this->descripcion', '$this->cantidad', '$this->precio')");
 
         if($query){
           return true; // Si se inserta correctamente, se devuelve true.
@@ -89,6 +97,7 @@ class ProductoModel{
 
   public function updateProducto($id){ // Función para editar un producto.
     if(isset($_POST)){ // mysqli_real_escape_string sirve para evitar inyecciones SQL.
+      $this->id_producto = mysqli_real_escape_string($this->db, $id);
       $this->nombre = mysqli_real_escape_string($this->db, $_POST['nombre']);
       $this->descripcion = mysqli_real_escape_string($this->db, $_POST['descripcion']);
       $this->cantidad = mysqli_real_escape_string($this->db, $_POST['cantidad']);
@@ -110,7 +119,7 @@ class ProductoModel{
       }
 
       if($error == ""){ // Si no hay errores, se edita el producto.
-        $query = $this->db->query("UPDATE productos SET nombre = '$this->nombre', descripcion = '$this->descripcion', cantidad = '$this->cantidad', precio = '$this->precio' WHERE id_producto = '$id'");
+        $query = $this->db->query("UPDATE productos SET nombre = '$this->nombre', descripcion = '$this->descripcion', cantidad = '$this->cantidad', precio = '$this->precio' WHERE id_producto = '$this->id_producto'");
 
         if($query){
           return true; // Si se edita correctamente, se devuelve true.
@@ -119,9 +128,20 @@ class ProductoModel{
           return false; // Si no, se devuelve false.
         }
       }else{
-        header("Location: index.php?c=producto&a=editar&e=" . $error); 
+        header("Location: index.php?c=producto&a=editar&id=" . $this->id_producto . "&e=" . $error); 
         // Si hay errores, se redirige a la página de editar producto con los errores.
       }
+    }
+  }
+  
+  public function updateCantidad($id_producto, $cantidad){
+    $query = $this->db->query("UPDATE productos SET cantidad = '$cantidad' WHERE id_producto = '$id_producto'");
+
+    if($query){
+      return true; // Si se edita correctamente, se devuelve true.
+    }
+    else{
+      return false; // Si no, se devuelve false.
     }
   }
 }
