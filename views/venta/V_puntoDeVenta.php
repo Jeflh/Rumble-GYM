@@ -29,7 +29,16 @@ require_once 'includes/navLogueado.php';
       }
     }
 
-    if(isset($_POST['eliminar'])){
+    if (isset($_POST['monto'])) {
+      if ($_POST['monto'] < $_POST['suma']) {
+        echo '<div class="text-center alert alert-dismissible alert-danger mb-2">
+        <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
+        <strong>Monto insuficiente</strong>, el monto ingresado es menor al total de la venta.
+        </div>';
+      }
+    }
+
+    if (isset($_POST['eliminar'])) {
       $i = 0;
       $find = false;
       foreach ($_SESSION['productos'] as $producto) {
@@ -43,7 +52,7 @@ require_once 'includes/navLogueado.php';
       if ($find == true) {
         $_SESSION['productos'][$i]['cantidad'] += 1;
         foreach ($_SESSION['carrito'] as $key => $value) {
-          if($value['id_producto'] == $_POST['id_producto']){
+          if ($value['id_producto'] == $_POST['id_producto']) {
             unset($_SESSION['carrito'][$key]);
             break;
           }
@@ -139,7 +148,8 @@ require_once 'includes/navLogueado.php';
                 </tr>
               </thead>
               <tbody>
-                <?php $sumaTotal = 0; $i = 0;
+                <?php $sumaTotal = 0;
+                $i = 0;
                 foreach ($_SESSION['carrito'] as $producto) : ?>
                   <tr class="table-default">
                     <th scope="row"><?php echo $producto['id_producto']; ?></th>
@@ -157,28 +167,46 @@ require_once 'includes/navLogueado.php';
                       </form>
                     </td>
                   </tr>
-                <?php $sumaTotal += $producto['precio']; $i++;
+                <?php $sumaTotal += $producto['precio'];
+                  $i++;
                 endforeach; ?>
                 <tr>
                   <td></td>
-                  <td></td>
                   <td class="text-end"><strong>Total:</strong> </td>
                   <td>$<?php echo $sumaTotal; ?></td>
+                  <td></td>
                 </tr>
               </tbody>
             </table>
-            <form action="index.php?c=venta&a=confirmar" method="POST">
-              <input type="hidden" name="id_empleado" value="<?php echo $empleado['id_empleado']; ?>">
-              <?php $i = 0;
-              foreach ($_SESSION['carrito'] as $producto) : ?>
-                <input type="hidden" name="<?php echo $i; ?>" value="<?php echo $producto['id_producto']; ?>"></input>
-              <?php $i++;
-              endforeach; ?>
-              <input type="hidden" name="fecha_venta" value="<?php echo date('Y-m-d'); ?>">
-              <input type="hidden" name="monto_venta" value="<?php echo $sumaTotal; ?>">
-              <div class="d-grid">
-                <button class="btn btn  btn-success" type="submit">Confirmar pago</button>
+
+            <form action="#" method="POST" class="d-flex justify-content-center">
+              <input type="hidden" name="suma" value="<?php echo $sumaTotal; ?>">
+              <input class="form-control w-50 input-sm text-end" min="0" type="number" name="monto" value="<?php if (isset($_POST['monto'])) echo $_POST['monto'] ?>">
+              <div>
+                <button class="btn btn btn-success ms-2" type="submit">Ingresar monto</button>
               </div>
+            </form>
+
+            <?php if (isset($_POST['monto'])) $cambio = $_POST['monto'] - $sumaTotal; ?>
+
+            <?php if (isset($cambio) && $cambio >= 0) : ?>
+              <div class="d-flex justify-content-center">
+                <h5 class="text-center text-light mt-2 mb-2"><strong>Cambio:</strong> $<?php echo $cambio; ?></h5>
+              </div>
+              <form action="index.php?c=venta&a=confirmar" method="POST">
+                <input type="hidden" name="id_empleado" value="<?php echo $empleado['id_empleado']; ?>">
+                <?php $i = 0;
+                foreach ($_SESSION['carrito'] as $producto) : ?>
+                  <input type="hidden" name="<?php echo $i; ?>" value="<?php echo $producto['id_producto']; ?>"></input>
+                <?php $i++;
+                endforeach; ?>
+                <input type="hidden" name="fecha_venta" value="<?php echo date('Y-m-d'); ?>">
+                <input type="hidden" name="monto_venta" value="<?php echo $sumaTotal; ?>">
+                <div class="d-grid">
+                  <button class="btn btn btn-success" type="submit">Confirmar pago</button>
+                </div>
+              </form>
+            <?php endif; ?>
           </div>
         <?php endif; ?>
       </div>
