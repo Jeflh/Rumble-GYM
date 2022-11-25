@@ -161,6 +161,7 @@ require_once 'includes/navLogueado.php';
                 endforeach; ?>
                 <tr>
                   <td></td>
+                  <td></td>
                   <td class="text-end"><strong>Total:</strong> </td>
                   <td>$<?php echo $sumaTotal; ?></td>
                 </tr>
