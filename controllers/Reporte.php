@@ -14,7 +14,11 @@ class ReporteController{
     if(!$this->auth){
       header('Location: index.php?c=login');
     }
-    if($_SESSION['usuario']['tipo'] != '1'){
+    if(isset($_SESSION['usuario']['tipo'])){
+      if($_SESSION['usuario']['tipo'] != '1'){
+        header('Location: index.php?c=panel');
+      }
+    } else {
       header('Location: index.php?c=panel');
     }
 

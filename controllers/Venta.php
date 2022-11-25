@@ -19,7 +19,11 @@ class VentaController{
     if(!$this->auth){
       header('Location: index.php?c=login');
     }
-    if(!$_SESSION['usuario']['tipo']){
+    if(isset($_SESSION['usuario']['tipo'])){
+      if($_SESSION['usuario']['tipo'] != '1' && $_SESSION['usuario']['tipo'] != '2'){
+        header('Location: index.php?c=panel');
+      }
+    } else {
       header('Location: index.php?c=panel');
     }
     $empleado = $_SESSION['usuario'];  
@@ -31,7 +35,8 @@ class VentaController{
 
   public function confirmar(){
     if(isset($_POST)){
-      foreach($_POST as $key => $value){
+      foreach($_POST as $key => $value){ 
+        // En el servidor por alguna razón solo funciona con == en vez de !=
         if($key != 'id_empleado' && $key != 'fecha_venta' && $key != 'monto_venta'){
           $producto = $this->productoModel->getProducto($value);
           $nuevaCantidad = $producto['cantidad'] - 1;
@@ -44,6 +49,7 @@ class VentaController{
         'fecha_venta' => $_POST['fecha_venta'],
         'monto_venta' => $_POST['monto_venta']
       );
+
       $resultado = $this->ventaModel->insertVenta($datos);
 
       if($resultado){

@@ -15,7 +15,7 @@ class ProductoController{
     if(!$this->auth){
       header('Location: index.php?c=login');
     }
-    if( $_SESSION['usuario']['tipo'] != '1'){
+    if(!isset($_SESSION['usuario']['tipo'])){
       header('Location: index.php?c=panel');
     }
     $productos = $this->productoModel->getAll();

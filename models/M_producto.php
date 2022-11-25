@@ -133,7 +133,7 @@ class ProductoModel{
       }
     }
   }
-
+  
   public function updateCantidad($id_producto, $cantidad){
     $query = $this->db->query("UPDATE productos SET cantidad = '$cantidad' WHERE id_producto = '$id_producto'");
 

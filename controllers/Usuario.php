@@ -10,7 +10,7 @@ class UsuarioController{
     if(!$this->auth){
       header('Location: index.php?c=login');
     }
-    if(!$_SESSION['usuario']['tipo']){
+    if(!isset($_SESSION['usuario']['tipo'])){
       header('Location: index.php?c=panel');
     }
     require_once('models/M_usuario.php');
