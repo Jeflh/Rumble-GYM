@@ -136,10 +136,10 @@ require_once 'includes/navLogueado.php';
             <label for="tipo_suscripcion" class="form-label mt-2">Tipo de suscripcion</label>
             <select class="form-select" id="tipo_suscripcion" name="tipo_suscripcion">
               <option selected disabled>-Seleccionar-</option>
-              <option <?php if($usuario['tipo_suscripcion'] == '1') echo 'selected';?> >1- Mensual</option>
-              <option <?php if($usuario['tipo_suscripcion'] == '2') echo 'selected';?> >2- Trimestral</option>
-              <option <?php if($usuario['tipo_suscripcion'] == '3') echo 'selected';?> >3- Semestral</option>
-              <option <?php if($usuario['tipo_suscripcion'] == '4') echo 'selected';?> >4- Anual</option>
+              <option <?php if($usuario['tipo_suscripcion'] == '1') echo 'selected';?> >1- Mensual - $300</option>
+              <option <?php if($usuario['tipo_suscripcion'] == '2') echo 'selected';?> >2- Trimestral - $855</option>
+              <option <?php if($usuario['tipo_suscripcion'] == '3') echo 'selected';?> >3- Semestral - $1620</option>
+              <option <?php if($usuario['tipo_suscripcion'] == '4') echo 'selected';?> >4- Anual - $2880</option>
             </select>
           </div>
           <input type="hidden" id="id_usuario" name="id_usuario" value="<?php echo $usuario['id_usuario'];?>">

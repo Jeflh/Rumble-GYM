@@ -31,7 +31,7 @@ require_once 'includes/navLogueado.php';
     <table class="table table-dark table-striped table-bordered table-hover text-center">
       <thead>
         <tr>
-          <th scope="col" class="col-1">ID</th>
+          <th scope="col" class="col-1">Código</th>
           <th scope="col" class="col-3">Nombre</th>
           <th scope="col" class="col-1">Estatus</th>
           <th scope="col" class="col-5">Asistencia en los ultimos 30 días</th>
@@ -54,7 +54,7 @@ require_once 'includes/navLogueado.php';
 
             <td class="text-primary">
               <div class="progress">
-                <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" role="progressbar" style="width: <?php echo $lista[$i]['asistencia']?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="text-light text-center"><strong><?php echo $lista[$i]['asistencia'] . '%'?></strong></span></div>
+                <div class="progress-bar progress-bar-striped <?php echo $estado = $usuario['estado'] == '1' ? 'bg-info' : 'bg-secondary';?> progress-bar-animated" role="progressbar" style="width: <?php echo $lista[$i]['asistencia']?>%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><span class="text-light text-center"><strong><?php echo $lista[$i]['asistencia'] . '%'?></strong></span></div>
               </div>
             </td>
             <td>

@@ -136,10 +136,10 @@ require_once 'includes/navLogueado.php';
             <label for="tipo_suscripcion" class="form-label mt-2">Tipo de suscripcion</label>
             <select class="form-select" id="tipo_suscripcion" name="tipo_suscripcion">
               <option selected disabled>-Seleccionar-</option>
-              <option>1- Mensual</option>
-              <option>2- Trimestral</option>
-              <option>3- Semestral</option>
-              <option>4- Anual</option>
+              <option>1- Mensual - $300</option>
+              <option>2- Trimestral - $855</option>
+              <option>3- Semestral - $1620</option>
+              <option>4- Anual - $2880</option>
             </select>
           </div>
           <div class="d-flex justify-content-center mt-2 mb-3">

@@ -17,7 +17,7 @@ class BitacoraController{
     if(!$this->auth){
       header('Location: index.php?c=login');
     }
-    if($_SESSION['usuario']['tipo'] != '1'){
+    if($_SESSION['usuario']['tipo'] != '1' && $_SESSION['usuario']['tipo'] != '2'){
       header('Location: index.php?c=panel');
     }
     $usuarios = $this->usuarioModel->getAll();
@@ -45,7 +45,7 @@ class BitacoraController{
       $sumaAsistencia = 0;
     }
 
-    require_once('views/bitacora/V_inicioBitacora.php');
+    require_once('views/bitacora/V_bitacoraDeIngreso.php');
   }
 }
 ?>
