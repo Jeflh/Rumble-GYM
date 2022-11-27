@@ -115,7 +115,7 @@ require_once 'includes/navLogueado.php';
           </div>
           <div class="form-group">
             <label for="password" class="form-label mt-2">Contraseña</label>
-            <input type="password"  class="form-control" id="password" name="password" placeholder="Ingresa una constraseña" autocomplete="off">
+            <input type="password" minlength="8" class="form-control" id="password" name="password" placeholder="Ingresa una constraseña" autocomplete="off">
           </div>
           <div class="d-flex justify-content-center mt-2 mb-3">
             <button type="submit" class="btn btn-primary mt-2">Agregar empleado</button>

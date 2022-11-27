@@ -115,7 +115,7 @@ require_once 'includes/navLogueado.php';
           </div>
           <div class="form-group">
             <label for="password" class="form-label mt-2">Contraseña</label>
-            <input type="password"  class="form-control" id="password" name="password" placeholder="Ingresa una constraseña" autocomplete="off">
+            <input type="password" minlength="8" class="form-control" id="password" name="password" placeholder="Ingresa una constraseña" autocomplete="off">
 
             <input type="hidden" id="id_empleado" name="id_empleado" value="<?php echo $empleado['id_empleado'];?>">
           </div>
