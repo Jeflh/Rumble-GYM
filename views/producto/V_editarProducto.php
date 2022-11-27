@@ -26,7 +26,7 @@ require_once 'includes/navLogueado.php';
         case "1":
           echo '<div class="text-center alert alert-dismissible alert-danger mb-1">
           <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
-          <strong>Nombre vacío </strong>, por favor introduce un nombre válido.
+          <strong>Nombre no válido</strong>, por favor introduce un nombre menor a 45 caracteres.
           </div>';
           break;
         case "2":
@@ -44,7 +44,7 @@ require_once 'includes/navLogueado.php';
         case "4":
           echo '<div class="text-center alert alert-dismissible alert-danger mb-1">
           <button type="button" class="btn-close " data-bs-dismiss="alert"></button>
-          <strong>Descripción vacía</strong>, por favor introduce una descripción del producto.
+          <strong>Descripción no válida</strong>, por favor introduce una descripción de maximo 200 caracteres.
           </div>';
           break;
       }

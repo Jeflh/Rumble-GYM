@@ -48,7 +48,7 @@ class ProductoModel{
 
       $error = ""; // Variable para almacenar los errores.
 
-      if(empty($this->nombre)){
+      if(empty($this->nombre) || strlen($this->nombre) > 45){ // Comprobamos que el nombre no esté vacío y que no supere los 50 caracteres.
         $error .= "1";
       }
       if(empty($this->cantidad)){
@@ -57,7 +57,7 @@ class ProductoModel{
       if(empty($this->precio)){
         $error .= "3";
       }
-      if(empty($this->descripcion)){
+      if(empty($this->descripcion) || strlen($this->descripcion) > 200){
         $error .= "4";
       }
 
@@ -105,7 +105,7 @@ class ProductoModel{
 
       $error = ""; // Variable para almacenar los errores.
 
-      if(empty($this->nombre)){
+      if(empty($this->nombre) || strlen($this->nombre) > 45){ // Comprobamos que el nombre no esté vacío y que no supere los 50 caracteres.
         $error .= "1";
       }
       if(empty($this->cantidad)){
@@ -114,7 +114,7 @@ class ProductoModel{
       if(empty($this->precio)){
         $error .= "3";
       }
-      if(empty($this->descripcion)){
+      if(empty($this->descripcion) || strlen($this->descripcion) > 200){
         $error .= "4";
       }
 

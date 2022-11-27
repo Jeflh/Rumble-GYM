@@ -31,14 +31,18 @@ class UsuarioController{
   public function insertar(){
     if(isset($_POST)){
 
-      if(substr($_POST['tipo_suscripcion'], 0, 1) == '1'){
-        $costo = 300;
-      } else if (substr($_POST['tipo_suscripcion'], 0, 1) == '2'){
-        $costo = 855;
-      } else if (substr($_POST['tipo_suscripcion'], 0, 1) == '3'){
-        $costo = 1620;
+      if(isset($_POST['tipo_suscripcion'])){
+        if(substr($_POST['tipo_suscripcion'], 0, 1) == '1'){
+          $costo = 300;
+        } else if (substr($_POST['tipo_suscripcion'], 0, 1) == '2'){
+          $costo = 855;
+        } else if (substr($_POST['tipo_suscripcion'], 0, 1) == '3'){
+          $costo = 1620;
+        } else {
+          $costo = 2880;
+        }
       } else {
-        $costo = 2880;
+        $costo = 0;
       }
 
       $datos = array(

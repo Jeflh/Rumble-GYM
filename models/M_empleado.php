@@ -56,7 +56,11 @@ class EmpleadoModel{
       $this->fecha_nac = mysqli_real_escape_string($this->db, $_POST['fecha_nac']);
       $this->domicilio = mysqli_real_escape_string($this->db, $_POST['domicilio']);
       $this->telefono = mysqli_real_escape_string($this->db, $_POST['telefono']);
-      $this->tipo = mysqli_real_escape_string($this->db, $_POST['tipo']);
+      if(isset($_POST['tipo'])){
+        $this->tipo = mysqli_real_escape_string($this->db, $_POST['tipo']);
+      } else {
+        $this->tipo = "";
+      }
       
 
       $error = ""; // Variable para almacenar los errores.
@@ -129,7 +133,11 @@ class EmpleadoModel{
       $this->fecha_nac = mysqli_real_escape_string($this->db, $_POST['fecha_nac']);
       $this->domicilio = mysqli_real_escape_string($this->db, $_POST['domicilio']);
       $this->telefono = mysqli_real_escape_string($this->db, $_POST['telefono']);
-      $this->tipo = mysqli_real_escape_string($this->db, $_POST['tipo']);
+      if(isset($_POST['tipo'])){
+        $this->tipo = mysqli_real_escape_string($this->db, $_POST['tipo']);
+      } else {
+        $this->tipo = "";
+      }
       
 
       $error = ""; // Variable para almacenar los errores.
