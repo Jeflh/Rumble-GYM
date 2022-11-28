@@ -118,7 +118,7 @@ require_once 'includes/navLogueado.php';
           </div>
           <div class="form-group">
             <label for="peso" class="form-label mt-2">Peso</label>
-            <input type="number" min="30" max="200" class="form-control" id="peso" name="peso" placeholder="Ej. 55" autocomplete="off">
+            <input type="number" min="30" max="250" class="form-control" id="peso" name="peso" placeholder="Ej. 55" autocomplete="off">
           </div>
           <div class="form-group">
             <label for="altura" class="form-label mt-2">Altura</label>
