@@ -6,7 +6,18 @@ Juan José Salazar Villegas
 
 Juan Emmanuel Fernández de Lara Hernández
 
+# Proyecto hosteado en servidor.
+https://rumble-gym.000webhostapp.com/
 
+#### Cuenta empleado de prueba
+Código: 1111
+Contraseña: 1234
+
+#### Cuenta usuario de prueba
+Código: 12345
+Fecha de nacimiento: 21/02/2000
+
+# Ejecutar proyecto
 ## XAMPP
 Al instalar este paquete de software podemos omitir los siguientes pasos, solo será necesario mover los archivos del proyecto a la carpeta httdocs.
 ![image|10](https://user-images.githubusercontent.com/88942550/205165022-476af4bc-620f-4392-a2e3-b90bc78bd2fc.png)
