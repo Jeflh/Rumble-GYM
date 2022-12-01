@@ -25,6 +25,18 @@ Mover la carpeta descargada a la raíz del disco principal
 ### Instalar MySQL
 
 https://dev.mysql.com/downloads/workbench/
+
 MySQL workbeanch es un manejador de bases de datos que se puede incluir en la instalación y configurarción del servicio MySQL, puede utilizar cualquier otro manejador de base de datos, el proyecto está configurado para conexiones MySQL
 
 ![image|10](https://user-images.githubusercontent.com/88942550/205167019-25fe34b1-bb69-4436-b117-6adc491972a0.png)
+
+
+## Correr servicios de XAMPP o iniciar servidor de desarrollo
+![image](https://user-images.githubusercontent.com/88942550/205167732-ce43c9af-40bc-40b4-aabe-0e11299893ed.png)
+
+Se puede utilizar una extensión de Visual Studio Code para facilitar el correr el servidor de php.
+
+Al iniciar el servidor el navegador nos redirigirá al localhost con el puerto correspondiente.
+![image](https://user-images.githubusercontent.com/88942550/205168056-8eecdb74-e628-48ef-a925-f34d54f8f383.png)
+
+Ahora puede navegar por las diferentes opciones que posee el sistema.
